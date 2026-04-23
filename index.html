@@ -1,0 +1,1539 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Banabas Anyanwu — Digital Marketing Strategist & Video Editor</title>
+  <meta name="description" content="Helping brands across the US, UK and Africa grow through content, strategy and AI-powered creativity." />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --black: #0a0a0a;
+      --white: #f8f6f2;
+      --cream: #f0ede6;
+      --gold: #b8972e;
+      --gold-light: #d4af55;
+      --grey: #6b6560;
+      --grey-light: #c8c4bc;
+      --border: #e2ddd6;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--white);
+      color: var(--black);
+      font-size: 16px;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* ── NAVIGATION ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.2rem 4rem;
+      background: rgba(248, 246, 242, 0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      transition: all 0.3s ease;
+    }
+
+    .nav-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.3rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      color: var(--black);
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2.5rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--grey);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--black); }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 4px;
+    }
+
+    .hamburger span {
+      display: block;
+      width: 24px;
+      height: 1.5px;
+      background: var(--black);
+      transition: all 0.3s;
+    }
+
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: var(--white);
+      z-index: 99;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 2.5rem;
+    }
+
+    .mobile-menu.open { display: flex; }
+
+    .mobile-menu a {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.5rem;
+      font-weight: 300;
+      color: var(--black);
+      text-decoration: none;
+      letter-spacing: 0.05em;
+    }
+
+    .mobile-close {
+      position: absolute;
+      top: 1.5rem; right: 2rem;
+      font-size: 2rem;
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: var(--black);
+    }
+
+    /* ── PAGES ── */
+    .page { display: none; padding-top: 80px; min-height: 100vh; }
+    .page.active { display: block; }
+
+    /* ── HOME ── */
+    .hero {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: calc(100vh - 80px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .hero-left {
+      padding: 6rem 4rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      border-right: 1px solid var(--border);
+    }
+
+    .hero-eyebrow {
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(3rem, 5vw, 5.5rem);
+      font-weight: 300;
+      line-height: 1.05;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.3rem;
+    }
+
+    .hero-name em {
+      font-style: italic;
+      color: var(--gold);
+    }
+
+    .hero-title {
+      font-size: 0.85rem;
+      font-weight: 400;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--grey);
+      margin-bottom: 2.5rem;
+      margin-top: 0.8rem;
+    }
+
+    .hero-tagline {
+      font-size: 1.1rem;
+      font-weight: 300;
+      color: var(--grey);
+      line-height: 1.7;
+      max-width: 420px;
+      margin-bottom: 3rem;
+      border-left: 2px solid var(--gold);
+      padding-left: 1.2rem;
+    }
+
+    .hero-ctas {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      padding: 0.9rem 2rem;
+      background: var(--black);
+      color: var(--white);
+      font-size: 0.78rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-block;
+      transition: background 0.2s;
+    }
+
+    .btn-primary:hover { background: var(--gold); }
+
+    .btn-secondary {
+      padding: 0.9rem 2rem;
+      background: transparent;
+      color: var(--black);
+      font-size: 0.78rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      border: 1px solid var(--black);
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-block;
+      transition: all 0.2s;
+    }
+
+    .btn-secondary:hover { background: var(--black); color: var(--white); }
+
+    .hero-right {
+      padding: 6rem 4rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      background: var(--cream);
+    }
+
+    .hero-stats-label {
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--grey);
+      margin-bottom: 2.5rem;
+    }
+
+    .stat-card {
+      padding: 1.5rem 0;
+      border-bottom: 1px solid var(--border);
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeUp 0.6s forwards;
+    }
+
+    .stat-card:nth-child(2) { animation-delay: 0.1s; }
+    .stat-card:nth-child(3) { animation-delay: 0.2s; }
+    .stat-card:nth-child(4) { animation-delay: 0.3s; }
+    .stat-card:nth-child(5) { animation-delay: 0.4s; }
+
+    @keyframes fadeUp {
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .stat-number {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.2rem;
+      font-weight: 600;
+      color: var(--gold);
+      line-height: 1;
+      margin-bottom: 0.3rem;
+    }
+
+    .stat-desc {
+      font-size: 0.82rem;
+      color: var(--grey);
+      line-height: 1.4;
+    }
+
+    .stat-brand {
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--black);
+      margin-top: 0.3rem;
+    }
+
+    /* Brands Section */
+    .brands-section {
+      padding: 5rem 4rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .section-label {
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--grey);
+      margin-bottom: 3rem;
+    }
+
+    .brands-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0;
+    }
+
+    .brand-item {
+      padding: 1.5rem 2.5rem;
+      border: 1px solid var(--border);
+      margin-right: -1px;
+      margin-bottom: -1px;
+    }
+
+    .brand-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.2rem;
+      font-weight: 400;
+      margin-bottom: 0.2rem;
+    }
+
+    .brand-location {
+      font-size: 0.72rem;
+      color: var(--grey);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    /* Blog Preview */
+    .blog-preview-section {
+      padding: 5rem 4rem;
+      background: var(--cream);
+    }
+
+    .section-header {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      margin-bottom: 3rem;
+    }
+
+    .section-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.5rem;
+      font-weight: 300;
+    }
+
+    .see-all {
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--gold);
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    .blog-preview-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+    }
+
+    .blog-preview-card {
+      background: var(--white);
+      padding: 2rem;
+      cursor: pointer;
+      transition: transform 0.2s;
+      border: 1px solid var(--border);
+    }
+
+    .blog-preview-card:hover { transform: translateY(-4px); }
+
+    .blog-card-category {
+      font-size: 0.68rem;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.8rem;
+    }
+
+    .blog-card-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.3rem;
+      font-weight: 400;
+      line-height: 1.3;
+      margin-bottom: 0.8rem;
+    }
+
+    .blog-card-excerpt {
+      font-size: 0.85rem;
+      color: var(--grey);
+      line-height: 1.6;
+      margin-bottom: 1.2rem;
+    }
+
+    .blog-card-meta {
+      font-size: 0.72rem;
+      color: var(--grey-light);
+      letter-spacing: 0.08em;
+    }
+
+    /* ── ABOUT PAGE ── */
+    .about-hero {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .about-text {
+      padding: 6rem 4rem;
+      border-right: 1px solid var(--border);
+    }
+
+    .about-photo {
+      background: var(--cream);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 500px;
+      flex-direction: column;
+      gap: 1rem;
+      color: var(--grey);
+    }
+
+    .photo-placeholder {
+      width: 180px;
+      height: 180px;
+      border: 1px dashed var(--grey-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.75rem;
+      color: var(--grey-light);
+      text-align: center;
+      padding: 1rem;
+    }
+
+    .page-eyebrow {
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1rem;
+    }
+
+    .page-heading {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.5rem, 4vw, 4rem);
+      font-weight: 300;
+      line-height: 1.1;
+      margin-bottom: 2rem;
+    }
+
+    .about-bio {
+      font-size: 1rem;
+      line-height: 1.8;
+      color: var(--grey);
+      margin-bottom: 1.5rem;
+    }
+
+    .skills-section {
+      padding: 5rem 4rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .skills-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin-top: 2rem;
+    }
+
+    .skill-tag {
+      padding: 0.5rem 1.2rem;
+      border: 1px solid var(--border);
+      font-size: 0.78rem;
+      letter-spacing: 0.08em;
+      color: var(--grey);
+      transition: all 0.2s;
+    }
+
+    .skill-tag:hover { border-color: var(--gold); color: var(--black); }
+
+    .credentials-section {
+      padding: 5rem 4rem;
+      background: var(--cream);
+    }
+
+    .credentials-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .credential-card {
+      padding: 2rem;
+      background: var(--white);
+      border: 1px solid var(--border);
+    }
+
+    .credential-icon {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .credential-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 0.4rem;
+    }
+
+    .credential-detail {
+      font-size: 0.82rem;
+      color: var(--grey);
+      line-height: 1.5;
+    }
+
+    /* ── PORTFOLIO PAGE ── */
+    .portfolio-header {
+      padding: 6rem 4rem 3rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .filter-tabs {
+      display: flex;
+      gap: 0;
+      margin-top: 3rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .filter-tab {
+      padding: 0.8rem 1.8rem;
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--grey);
+      background: none;
+      border: none;
+      border-bottom: 2px solid transparent;
+      cursor: pointer;
+      margin-bottom: -1px;
+      transition: all 0.2s;
+    }
+
+    .filter-tab.active {
+      color: var(--black);
+      border-bottom-color: var(--gold);
+    }
+
+    .portfolio-grid {
+      padding: 4rem;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2px;
+      background: var(--border);
+    }
+
+    .case-card {
+      background: var(--white);
+      padding: 3rem;
+      transition: background 0.2s;
+    }
+
+    .case-card:hover { background: var(--cream); }
+
+    .case-brand {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.8rem;
+      font-weight: 400;
+      margin-bottom: 0.3rem;
+    }
+
+    .case-location {
+      font-size: 0.72rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1.5rem;
+    }
+
+    .case-result {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.5rem;
+      font-weight: 600;
+      color: var(--gold);
+      line-height: 1;
+      margin-bottom: 0.5rem;
+    }
+
+    .case-desc {
+      font-size: 0.88rem;
+      color: var(--grey);
+      line-height: 1.7;
+      margin-top: 1rem;
+    }
+
+    .case-tags {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      margin-top: 1.5rem;
+    }
+
+    .case-tag {
+      padding: 0.3rem 0.8rem;
+      background: var(--cream);
+      font-size: 0.68rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--grey);
+    }
+
+    /* ── BLOG PAGE ── */
+    .blog-header {
+      padding: 6rem 4rem 3rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+    }
+
+    .blog-search {
+      display: flex;
+      align-items: center;
+      border: 1px solid var(--border);
+      padding: 0.7rem 1.2rem;
+      gap: 0.5rem;
+    }
+
+    .blog-search input {
+      border: none;
+      background: none;
+      outline: none;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.85rem;
+      color: var(--black);
+      width: 200px;
+    }
+
+    .blog-search input::placeholder { color: var(--grey-light); }
+
+    .blog-categories {
+      display: flex;
+      gap: 0;
+      padding: 0 4rem;
+      border-bottom: 1px solid var(--border);
+      overflow-x: auto;
+    }
+
+    .cat-tab {
+      padding: 1rem 1.5rem;
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--grey);
+      background: none;
+      border: none;
+      border-bottom: 2px solid transparent;
+      cursor: pointer;
+      margin-bottom: -1px;
+      white-space: nowrap;
+      transition: all 0.2s;
+    }
+
+    .cat-tab.active { color: var(--black); border-bottom-color: var(--gold); }
+
+    .blog-grid {
+      padding: 4rem;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+    }
+
+    .blog-card {
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+
+    .blog-card:hover { transform: translateY(-4px); }
+
+    .blog-card-img {
+      width: 100%;
+      height: 200px;
+      background: var(--cream);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.72rem;
+      color: var(--grey-light);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 1.5rem;
+      border: 1px solid var(--border);
+    }
+
+    .blog-card-body { padding: 0; }
+
+    /* Blog Post */
+    .blog-post-container {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 5rem 2rem;
+    }
+
+    .post-back {
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gold);
+      cursor: pointer;
+      margin-bottom: 3rem;
+      display: inline-block;
+      text-decoration: none;
+      background: none;
+      border: none;
+    }
+
+    .post-category {
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1rem;
+    }
+
+    .post-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2rem, 4vw, 3.5rem);
+      font-weight: 300;
+      line-height: 1.15;
+      margin-bottom: 1.5rem;
+    }
+
+    .post-meta {
+      font-size: 0.78rem;
+      color: var(--grey);
+      margin-bottom: 3rem;
+      padding-bottom: 2rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .post-content {
+      font-size: 1.05rem;
+      line-height: 1.85;
+      color: #2a2a2a;
+    }
+
+    .post-content p { margin-bottom: 1.5rem; }
+    .post-content h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.8rem;
+      font-weight: 400;
+      margin: 2.5rem 0 1rem;
+    }
+
+    .post-share {
+      margin-top: 4rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .post-share span {
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--grey);
+    }
+
+    .share-btn {
+      padding: 0.5rem 1.2rem;
+      border: 1px solid var(--border);
+      font-size: 0.72rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--grey);
+      background: none;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .share-btn:hover { background: var(--black); color: var(--white); border-color: var(--black); }
+
+    /* Write post form */
+    .write-post-section {
+      padding: 4rem;
+      background: var(--cream);
+      border-top: 1px solid var(--border);
+    }
+
+    .write-form {
+      max-width: 800px;
+    }
+
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+
+    .form-label {
+      display: block;
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--grey);
+      margin-bottom: 0.5rem;
+    }
+
+    .form-input, .form-select, .form-textarea {
+      width: 100%;
+      padding: 0.8rem 1rem;
+      border: 1px solid var(--border);
+      background: var(--white);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.9rem;
+      color: var(--black);
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    .form-input:focus, .form-select:focus, .form-textarea:focus {
+      border-color: var(--gold);
+    }
+
+    .form-textarea { min-height: 300px; resize: vertical; }
+
+    /* ── CONTACT PAGE ── */
+    .contact-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: calc(100vh - 80px);
+    }
+
+    .contact-left {
+      padding: 6rem 4rem;
+      background: var(--black);
+      color: var(--white);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .contact-left .page-eyebrow { color: var(--gold-light); }
+
+    .contact-left .page-heading { color: var(--white); }
+
+    .contact-info-item {
+      margin-bottom: 2rem;
+    }
+
+    .contact-info-label {
+      font-size: 0.68rem;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--grey-light);
+      margin-bottom: 0.3rem;
+    }
+
+    .contact-info-value {
+      font-size: 0.95rem;
+      color: var(--white);
+    }
+
+    .contact-right {
+      padding: 6rem 4rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .contact-form .form-group { margin-bottom: 1.5rem; }
+
+    /* ── FOOTER ── */
+    footer {
+      padding: 3rem 4rem;
+      border-top: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: var(--black);
+      color: var(--white);
+    }
+
+    .footer-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem;
+      font-weight: 400;
+      color: var(--white);
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .footer-links a {
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--grey-light);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover { color: var(--gold-light); }
+
+    .footer-copy {
+      font-size: 0.72rem;
+      color: var(--grey);
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      nav { padding: 1.2rem 1.5rem; }
+      .nav-links { display: none; }
+      .hamburger { display: flex; }
+
+      .hero { grid-template-columns: 1fr; }
+      .hero-left { padding: 3rem 1.5rem; border-right: none; border-bottom: 1px solid var(--border); }
+      .hero-right { padding: 3rem 1.5rem; }
+
+      .about-hero { grid-template-columns: 1fr; }
+      .about-text { padding: 3rem 1.5rem; border-right: none; }
+      .about-photo { min-height: 300px; }
+
+      .brands-section, .blog-preview-section, .skills-section,
+      .credentials-section, .portfolio-header, .write-post-section { padding: 3rem 1.5rem; }
+
+      .portfolio-grid { padding: 1.5rem; grid-template-columns: 1fr; }
+      .blog-grid { padding: 1.5rem; grid-template-columns: 1fr; }
+      .blog-header { padding: 3rem 1.5rem 2rem; flex-direction: column; align-items: flex-start; gap: 1.5rem; }
+      .blog-categories { padding: 0 1.5rem; }
+
+      .blog-preview-grid { grid-template-columns: 1fr; }
+      .credentials-grid { grid-template-columns: 1fr; }
+
+      .contact-container { grid-template-columns: 1fr; }
+      .contact-left, .contact-right { padding: 3rem 1.5rem; }
+
+      footer { padding: 2rem 1.5rem; flex-direction: column; gap: 1rem; text-align: center; }
+      .footer-links { flex-wrap: wrap; justify-content: center; }
+
+      .blog-post-container { padding: 3rem 1.5rem; }
+      .filter-tabs { overflow-x: auto; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAVIGATION -->
+<nav id="navbar">
+  <a href="#" class="nav-logo" onclick="showPage('home')">BA</a>
+  <ul class="nav-links">
+    <li><a href="#" onclick="showPage('home')">Home</a></li>
+    <li><a href="#" onclick="showPage('about')">About</a></li>
+    <li><a href="#" onclick="showPage('portfolio')">Portfolio</a></li>
+    <li><a href="#" onclick="showPage('blog')">Blog</a></li>
+    <li><a href="#" onclick="showPage('contact')">Contact</a></li>
+  </ul>
+  <button class="hamburger" onclick="openMenu()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-close" onclick="closeMenu()">×</button>
+  <a href="#" onclick="showPage('home');closeMenu()">Home</a>
+  <a href="#" onclick="showPage('about');closeMenu()">About</a>
+  <a href="#" onclick="showPage('portfolio');closeMenu()">Portfolio</a>
+  <a href="#" onclick="showPage('blog');closeMenu()">Blog</a>
+  <a href="#" onclick="showPage('contact');closeMenu()">Contact</a>
+</div>
+
+<!-- ══════════════════════════════════════
+     HOME PAGE
+══════════════════════════════════════ -->
+<div id="page-home" class="page active">
+
+  <section class="hero">
+    <div class="hero-left">
+      <p class="hero-eyebrow">Digital Marketing Strategist & Video Editor</p>
+      <h1 class="hero-name">Banabas<br><em>Anyanwu</em></h1>
+      <p class="hero-title">Lagos · Remote · Global</p>
+      <p class="hero-tagline">Helping brands across the US, UK and Africa grow through content, strategy and AI-powered creativity.</p>
+      <div class="hero-ctas">
+        <a href="#" class="btn-primary" onclick="showPage('contact')">Work With Me</a>
+        <a href="#" class="btn-secondary" onclick="showPage('portfolio')">See My Work</a>
+      </div>
+    </div>
+    <div class="hero-right">
+      <p class="hero-stats-label">Proven Results</p>
+      <div class="stat-card">
+        <div class="stat-number">Millions</div>
+        <div class="stat-desc">Worth of near-expiry pharmaceutical stock cleared in under 3 months</div>
+        <div class="stat-brand">Prodserv Pharmaceuticals · Nigeria</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">530%</div>
+        <div class="stat-desc">Increase in video views through strategic content production</div>
+        <div class="stat-brand">Fitness Done Right · USA</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">1,100%</div>
+        <div class="stat-desc">Brand reach increase in under six months</div>
+        <div class="stat-brand">Nudeya</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">500%</div>
+        <div class="stat-desc">Follower growth achieved in just 3 months</div>
+        <div class="stat-brand">Nudeya</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="brands-section">
+    <p class="section-label">Brands I've Worked With</p>
+    <div class="brands-grid">
+      <div class="brand-item">
+        <div class="brand-name">Fitness Done Right</div>
+        <div class="brand-location">United States</div>
+      </div>
+      <div class="brand-item">
+        <div class="brand-name">Phatbird</div>
+        <div class="brand-location">United Kingdom</div>
+      </div>
+      <div class="brand-item">
+        <div class="brand-name">HarvestNow</div>
+        <div class="brand-location">United Kingdom</div>
+      </div>
+      <div class="brand-item">
+        <div class="brand-name">Prodserv Pharmaceuticals</div>
+        <div class="brand-location">Nigeria</div>
+      </div>
+      <div class="brand-item">
+        <div class="brand-name">Nudeya</div>
+        <div class="brand-location">Nigeria</div>
+      </div>
+      <div class="brand-item">
+        <div class="brand-name">Seasons</div>
+        <div class="brand-location">United Kingdom</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="blog-preview-section">
+    <div class="section-header">
+      <h2 class="section-title">Latest from the Blog</h2>
+      <a class="see-all" onclick="showPage('blog')">View All →</a>
+    </div>
+    <div class="blog-preview-grid" id="homePostsGrid"></div>
+  </section>
+
+  <footer>
+    <span class="footer-name">Banabas Anyanwu</span>
+    <ul class="footer-links">
+      <li><a href="#">LinkedIn</a></li>
+      <li><a href="#">Instagram</a></li>
+      <li><a href="#">TikTok</a></li>
+      <li><a href="#">YouTube</a></li>
+    </ul>
+    <span class="footer-copy">© 2025 Banabas Anyanwu</span>
+  </footer>
+</div>
+
+<!-- ══════════════════════════════════════
+     ABOUT PAGE
+══════════════════════════════════════ -->
+<div id="page-about" class="page">
+
+  <section class="about-hero">
+    <div class="about-text">
+      <p class="page-eyebrow">About</p>
+      <h1 class="page-heading">The Strategist<br>Behind the Growth</h1>
+      <p class="about-bio">I'm Banabas Anyanwu — a Digital Marketing Strategist, Social Media Manager, and Video Editor based in Lagos, Nigeria, working remotely with brands across the US, UK, and Africa.</p>
+      <p class="about-bio">With a BSc in Biochemistry and certifications in Project Management and Digital Analytics, I bring a data-driven precision to creative work. I don't just make content — I engineer growth.</p>
+      <p class="about-bio">From clearing millions in near-expiry pharmaceutical stock to delivering 1,100% brand reach increases, every strategy I build is grounded in results. Currently producing AI-powered content workflows, short-form video strategies, and social media systems for clients on three continents.</p>
+    </div>
+    <div class="about-photo">
+      <div class="photo-placeholder">Your professional photo goes here</div>
+      <p style="font-size:0.75rem; color:var(--grey-light); letter-spacing:0.1em; text-transform:uppercase;">Replace with your image</p>
+    </div>
+  </section>
+
+  <section class="skills-section">
+    <p class="section-label">Core Skills</p>
+    <div class="skills-grid">
+      <span class="skill-tag">Social Media Strategy</span>
+      <span class="skill-tag">Video Editing</span>
+      <span class="skill-tag">Short-Form Content</span>
+      <span class="skill-tag">TikTok / Reels / Shorts</span>
+      <span class="skill-tag">SEO / SEM</span>
+      <span class="skill-tag">Paid Media</span>
+      <span class="skill-tag">Google Ads</span>
+      <span class="skill-tag">AI Content Workflows</span>
+      <span class="skill-tag">Marketing Automation</span>
+      <span class="skill-tag">Google Analytics</span>
+      <span class="skill-tag">HubSpot</span>
+      <span class="skill-tag">Hootsuite</span>
+      <span class="skill-tag">Chatbot Deployment</span>
+      <span class="skill-tag">Affiliate Marketing</span>
+      <span class="skill-tag">KOL Marketing</span>
+      <span class="skill-tag">Content Strategy</span>
+    </div>
+  </section>
+
+  <section class="credentials-section">
+    <p class="section-label">Education & Credentials</p>
+    <div class="credentials-grid">
+      <div class="credential-card">
+        <div class="credential-icon">🎓</div>
+        <div class="credential-title">BSc Biochemistry</div>
+        <div class="credential-detail">Lagos State University<br>CGPA 4.40 · 2019</div>
+      </div>
+      <div class="credential-card">
+        <div class="credential-icon">📋</div>
+        <div class="credential-title">PMP Certified</div>
+        <div class="credential-detail">IPMA via Utiva<br>Project Management Professional</div>
+      </div>
+      <div class="credential-card">
+        <div class="credential-icon">📊</div>
+        <div class="credential-title">Google Digital Skills</div>
+        <div class="credential-detail">Advanced Digital Analytics<br>Google for Africa</div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <span class="footer-name">Banabas Anyanwu</span>
+    <ul class="footer-links">
+      <li><a href="#">LinkedIn</a></li>
+      <li><a href="#">Instagram</a></li>
+      <li><a href="#">TikTok</a></li>
+      <li><a href="#">YouTube</a></li>
+    </ul>
+    <span class="footer-copy">© 2025 Banabas Anyanwu</span>
+  </footer>
+</div>
+
+<!-- ══════════════════════════════════════
+     PORTFOLIO PAGE
+══════════════════════════════════════ -->
+<div id="page-portfolio" class="page">
+
+  <div class="portfolio-header">
+    <p class="page-eyebrow">Portfolio</p>
+    <h1 class="page-heading">Work That<br>Moves Numbers</h1>
+    <div class="filter-tabs">
+      <button class="filter-tab active" onclick="filterCases('all', this)">All</button>
+      <button class="filter-tab" onclick="filterCases('social', this)">Social Media</button>
+      <button class="filter-tab" onclick="filterCases('video', this)">Video Editing</button>
+      <button class="filter-tab" onclick="filterCases('paid', this)">Paid Media</button>
+    </div>
+  </div>
+
+  <div class="portfolio-grid" id="portfolioGrid">
+
+    <div class="case-card" data-category="paid">
+      <div class="case-brand">Prodserv Pharmaceuticals</div>
+      <div class="case-location">Nigeria</div>
+      <div class="case-result">Millions Cleared</div>
+      <div class="case-desc">Turned a crisis into a win — sold out near-expiry pharmaceutical stock worth millions using targeted digital ads and a precision-built marketing strategy, all within 3 months.</div>
+      <div class="case-tags">
+        <span class="case-tag">Paid Media</span>
+        <span class="case-tag">Strategy</span>
+        <span class="case-tag">Crisis Marketing</span>
+      </div>
+    </div>
+
+    <div class="case-card" data-category="video">
+      <div class="case-brand">Fitness Done Right</div>
+      <div class="case-location">United States · Remote</div>
+      <div class="case-result">530%</div>
+      <div class="case-desc">Delivered a 530% increase in video views through strategic content production, short-form video editing, and platform-specific optimisation across YouTube and social platforms.</div>
+      <div class="case-tags">
+        <span class="case-tag">Video Editing</span>
+        <span class="case-tag">Content Strategy</span>
+        <span class="case-tag">YouTube</span>
+      </div>
+    </div>
+
+    <div class="case-card" data-category="social">
+      <div class="case-brand">Nudeya</div>
+      <div class="case-location">Nigeria</div>
+      <div class="case-result">1,100%</div>
+      <div class="case-desc">Achieved a 1,100% increase in brand reach alongside 500% follower growth in just 3 months — through data-driven hashtag strategy, content calendar execution, and audience targeting.</div>
+      <div class="case-tags">
+        <span class="case-tag">Social Media</span>
+        <span class="case-tag">Growth Strategy</span>
+        <span class="case-tag">Content</span>
+      </div>
+    </div>
+
+    <div class="case-card" data-category="social">
+      <div class="case-brand">Phatbird</div>
+      <div class="case-location">United Kingdom · Remote</div>
+      <div class="case-result">Active</div>
+      <div class="case-desc">Managing full social media strategy and AI-powered content production for a UK luxury fashion brand across TikTok, Instagram, and beyond. Producing editorial-grade AI visuals using Google Flow and Veo 3.</div>
+      <div class="case-tags">
+        <span class="case-tag">Social Media</span>
+        <span class="case-tag">AI Content</span>
+        <span class="case-tag">Luxury Fashion</span>
+      </div>
+    </div>
+
+    <div class="case-card" data-category="social">
+      <div class="case-brand">HarvestNow</div>
+      <div class="case-location">United Kingdom · Remote</div>
+      <div class="case-result">Active</div>
+      <div class="case-desc">Full social media management for a bold UK Christian lifestyle brand across Instagram, TikTok, Facebook, and YouTube — driving evangelism content, community growth, and platform optimisation.</div>
+      <div class="case-tags">
+        <span class="case-tag">Social Media</span>
+        <span class="case-tag">Community</span>
+        <span class="case-tag">Multi-Platform</span>
+      </div>
+    </div>
+
+    <div class="case-card" data-category="social">
+      <div class="case-brand">Prodserv Pharmaceuticals</div>
+      <div class="case-location">Nigeria</div>
+      <div class="case-result">300%</div>
+      <div class="case-desc">Grew social media following by 300% in 6 months through consistent brand voice, strategic content planning, and community engagement across all major platforms.</div>
+      <div class="case-tags">
+        <span class="case-tag">Social Media</span>
+        <span class="case-tag">Growth</span>
+        <span class="case-tag">Brand Building</span>
+      </div>
+    </div>
+
+  </div>
+
+  <footer>
+    <span class="footer-name">Banabas Anyanwu</span>
+    <ul class="footer-links">
+      <li><a href="#">LinkedIn</a></li>
+      <li><a href="#">Instagram</a></li>
+      <li><a href="#">TikTok</a></li>
+      <li><a href="#">YouTube</a></li>
+    </ul>
+    <span class="footer-copy">© 2025 Banabas Anyanwu</span>
+  </footer>
+</div>
+
+<!-- ══════════════════════════════════════
+     BLOG PAGE
+══════════════════════════════════════ -->
+<div id="page-blog" class="page">
+
+  <div id="blogList">
+    <div class="blog-header">
+      <div>
+        <p class="page-eyebrow">Blog</p>
+        <h1 class="page-heading">Thoughts on<br>Growth & Craft</h1>
+      </div>
+      <div class="blog-search">
+        <span style="color:var(--grey-light)">⌕</span>
+        <input type="text" id="searchInput" placeholder="Search articles..." oninput="filterPosts()" />
+      </div>
+    </div>
+
+    <div class="blog-categories">
+      <button class="cat-tab active" onclick="filterByCategory('all', this)">All</button>
+      <button class="cat-tab" onclick="filterByCategory('Digital Marketing', this)">Digital Marketing</button>
+      <button class="cat-tab" onclick="filterByCategory('Social Media', this)">Social Media</button>
+      <button class="cat-tab" onclick="filterByCategory('Video Editing', this)">Video Editing</button>
+      <button class="cat-tab" onclick="filterByCategory('AI & Content', this)">AI & Content</button>
+      <button class="cat-tab" onclick="filterByCategory('Scale From Africa', this)">Scale From Africa</button>
+    </div>
+
+    <div class="blog-grid" id="blogGrid"></div>
+
+    <div class="write-post-section">
+      <p class="section-label">Publish a New Post</p>
+      <div class="write-form">
+        <div class="form-group">
+          <label class="form-label">Post Title</label>
+          <input type="text" class="form-input" id="postTitle" placeholder="Enter your article title" />
+        </div>
+        <div class="form-group">
+          <label class="form-label">Category</label>
+          <select class="form-select" id="postCategory">
+            <option>Digital Marketing</option>
+            <option>Social Media</option>
+            <option>Video Editing</option>
+            <option>AI & Content</option>
+            <option>Scale From Africa</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Content</label>
+          <textarea class="form-textarea" id="postContent" placeholder="Write your article here..."></textarea>
+        </div>
+        <button class="btn-primary" onclick="publishPost()">Publish Post</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- SINGLE POST VIEW -->
+  <div id="blogPost" style="display:none;">
+    <div class="blog-post-container">
+      <button class="post-back" onclick="closeBlogPost()">← Back to Blog</button>
+      <div class="post-category" id="postViewCategory"></div>
+      <h1 class="post-title" id="postViewTitle"></h1>
+      <div class="post-meta" id="postViewMeta"></div>
+      <div class="post-content" id="postViewContent"></div>
+      <div class="post-share">
+        <span>Share</span>
+        <button class="share-btn">Twitter</button>
+        <button class="share-btn">LinkedIn</button>
+        <button class="share-btn">Copy Link</button>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <span class="footer-name">Banabas Anyanwu</span>
+    <ul class="footer-links">
+      <li><a href="#">LinkedIn</a></li>
+      <li><a href="#">Instagram</a></li>
+      <li><a href="#">TikTok</a></li>
+      <li><a href="#">YouTube</a></li>
+    </ul>
+    <span class="footer-copy">© 2025 Banabas Anyanwu</span>
+  </footer>
+</div>
+
+<!-- ══════════════════════════════════════
+     CONTACT PAGE
+══════════════════════════════════════ -->
+<div id="page-contact" class="page">
+  <div class="contact-container">
+    <div class="contact-left">
+      <p class="page-eyebrow">Contact</p>
+      <h1 class="page-heading">Let's Build<br>Something Great</h1>
+      <p style="color:var(--grey-light); font-size:0.9rem; margin-bottom:3rem; line-height:1.7;">Based in Lagos, Nigeria. Working remotely with brands worldwide.</p>
+      <div class="contact-info-item">
+        <div class="contact-info-label">Email</div>
+        <div class="contact-info-value">your@email.com</div>
+      </div>
+      <div class="contact-info-item">
+        <div class="contact-info-label">WhatsApp</div>
+        <div class="contact-info-value">+234 000 000 0000</div>
+      </div>
+      <div class="contact-info-item">
+        <div class="contact-info-label">Location</div>
+        <div class="contact-info-value">Lagos, Nigeria · Available Remotely</div>
+      </div>
+      <div style="margin-top:2rem;">
+        <a href="#" class="btn-primary" style="display:inline-block;">Chat on WhatsApp</a>
+      </div>
+    </div>
+    <div class="contact-right">
+      <p class="page-eyebrow">Send a Message</p>
+      <h2 style="font-family:'Cormorant Garamond',serif; font-size:2rem; font-weight:300; margin-bottom:2.5rem;">Get in Touch</h2>
+      <div class="contact-form">
+        <div class="form-group">
+          <label class="form-label">Your Name</label>
+          <input type="text" class="form-input" placeholder="Full name" />
+        </div>
+        <div class="form-group">
+          <label class="form-label">Email Address</label>
+          <input type="email" class="form-input" placeholder="your@email.com" />
+        </div>
+        <div class="form-group">
+          <label class="form-label">Subject</label>
+          <input type="text" class="form-input" placeholder="How can I help?" />
+        </div>
+        <div class="form-group">
+          <label class="form-label">Message</label>
+          <textarea class="form-textarea" style="min-height:160px;" placeholder="Tell me about your project..."></textarea>
+        </div>
+        <button class="btn-primary" style="width:100%;">Send Message</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════
+     JAVASCRIPT
+══════════════════════════════════════ -->
+<script>
+  // ── SAMPLE BLOG POSTS ──
+  let posts = [
+    {
+      id: 1,
+      title: "How I Cleared Millions in Near-Expiry Pharma Stock Using Digital Ads",
+      category: "Digital Marketing",
+      date: "April 2025",
+      excerpt: "A crisis brief, a tight deadline, and a strategy that turned potential loss into a complete sell-out. Here's exactly what I did.",
+      content: `<p>When Prodserv Pharmaceuticals came to me with the brief, the situation was urgent. Millions worth of pharmaceutical stock was approaching its expiry date, and the clock was ticking. Most people would have panicked. I got to work.</p><h2>Understanding the Problem</h2><p>The first thing I did was reframe the challenge. This wasn't a crisis — it was a time-sensitive sales problem. And every sales problem has a digital solution if you apply the right strategy fast enough.</p><h2>The Strategy</h2><p>I built a multi-platform paid media campaign targeting healthcare professionals, pharmacies, and B2B buyers within a defined radius. The messaging was urgent but professional — scarcity creates action when positioned correctly.</p><h2>The Result</h2><p>Within 3 months, the stock was cleared. Completely. Millions in potential losses became a sell-out success story. The key? Speed, precision targeting, and messaging that respected the intelligence of the buyer.</p>`
+    },
+    {
+      id: 2,
+      title: "Why African Digital Marketers Have a Global Competitive Edge",
+      category: "Scale From Africa",
+      date: "March 2025",
+      excerpt: "Working from Lagos and serving clients in London and New York taught me something powerful about the African creative advantage.",
+      content: `<p>There's a narrative that needs to be dismantled: that working from Africa means working at a disadvantage. My experience says the opposite.</p><h2>The African Creative Edge</h2><p>When you grow up navigating limited resources with maximum creativity, you develop a problem-solving instinct that most Western marketers never need to build. That instinct is worth a premium in global markets.</p><h2>What Remote Work Revealed</h2><p>My clients in the US and UK don't care where I'm based. They care about results. And those results — 530% video growth, 1,100% reach increases — speak a language that crosses every border.</p><h2>Scale From Africa</h2><p>This is why I'm building the Scale From Africa movement. To show the next generation of African digital professionals that geography is not a limitation. It's a story. And stories, told well, sell.</p>`
+    },
+    {
+      id: 3,
+      title: "The AI Content Workflow That Changed How I Produce for Clients",
+      category: "AI & Content",
+      date: "February 2025",
+      excerpt: "From Google Flow to Veo 3 to CapCut — here's the full production stack I use to create editorial-grade content at scale.",
+      content: `<p>The question I get asked most often is: how are you producing this volume of content without a full team? The honest answer is AI — used strategically, not lazily.</p><h2>The Stack</h2><p>My current AI content production workflow runs through Google Flow for image generation, Veo 3 for cinematic video, and CapCut for assembly and editing. Each tool has a specific role, and the key is knowing where human judgment must override the machine.</p><h2>Prompt Engineering is the Skill</h2><p>Anyone can access these tools. The differentiator is prompt precision. I spend more time crafting my prompts than I do in the actual generation phase — because a well-engineered prompt eliminates the need for endless regenerations.</p><h2>What This Means for Brands</h2><p>The brands I work with now have access to editorial-quality visual content at a fraction of traditional production costs. That's not a race to the bottom — it's a strategic advantage for brands willing to move fast.</p>`
+    }
+  ];
+
+  let currentCategory = 'all';
+
+  // ── PAGE NAVIGATION ──
+  function showPage(name) {
+    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+    document.getElementById('page-' + name).classList.add('active');
+    window.scrollTo(0, 0);
+    if (name === 'blog') renderBlogGrid();
+    if (name === 'home') renderHomePosts();
+  }
+
+  // ── MOBILE MENU ──
+  function openMenu() { document.getElementById('mobileMenu').classList.add('open'); }
+  function closeMenu() { document.getElementById('mobileMenu').classList.remove('open'); }
+
+  // ── PORTFOLIO FILTER ──
+  function filterCases(cat, btn) {
+    document.querySelectorAll('.filter-tab').forEach(t => t.classList.remove('active'));
+    btn.classList.add('active');
+    document.querySelectorAll('.case-card').forEach(card => {
+      card.style.display = (cat === 'all' || card.dataset.category === cat) ? 'block' : 'none';
+    });
+  }
+
+  // ── BLOG RENDER ──
+  function renderBlogGrid(filter = '') {
+    const grid = document.getElementById('blogGrid');
+    const filtered = posts.filter(p => {
+      const matchCat = currentCategory === 'all' || p.category === currentCategory;
+      const matchSearch = p.title.toLowerCase().includes(filter.toLowerCase()) ||
+                          p.excerpt.toLowerCase().includes(filter.toLowerCase());
+      return matchCat && matchSearch;
+    });
+
+    grid.innerHTML = filtered.length ? filtered.map(p => `
+      <div class="blog-card" onclick="openBlogPost(${p.id})">
+        <div class="blog-card-img">Featured Image</div>
+        <div class="blog-card-body">
+          <div class="blog-card-category">${p.category}</div>
+          <h3 class="blog-card-title">${p.title}</h3>
+          <p class="blog-card-excerpt">${p.excerpt}</p>
+          <div class="blog-card-meta">Banabas Anyanwu · ${p.date}</div>
+        </div>
+      </div>
+    `).join('') : '<p style="color:var(--grey); padding:2rem; grid-column:1/-1;">No posts found.</p>';
+  }
+
+  function renderHomePosts() {
+    const grid = document.getElementById('homePostsGrid');
+    if (!grid) return;
+    grid.innerHTML = posts.slice(0, 3).map(p => `
+      <div class="blog-preview-card" onclick="showPage('blog'); setTimeout(()=>openBlogPost(${p.id}),100)">
+        <div class="blog-card-category">${p.category}</div>
+        <h3 class="blog-card-title">${p.title}</h3>
+        <p class="blog-card-excerpt">${p.excerpt}</p>
+        <div class="blog-card-meta">Banabas Anyanwu · ${p.date}</div>
+      </div>
+    `).join('');
+  }
+
+  function filterByCategory(cat, btn) {
+    currentCategory = cat;
+    document.querySelectorAll('.cat-tab').forEach(t => t.classList.remove('active'));
+    btn.classList.add('active');
+    renderBlogGrid(document.getElementById('searchInput').value);
+  }
+
+  function filterPosts() {
+    renderBlogGrid(document.getElementById('searchInput').value);
+  }
+
+  function openBlogPost(id) {
+    const post = posts.find(p => p.id === id);
+    if (!post) return;
+    document.getElementById('postViewCategory').textContent = post.category;
+    document.getElementById('postViewTitle').textContent = post.title;
+    document.getElementById('postViewMeta').textContent = `Banabas Anyanwu · ${post.date}`;
+    document.getElementById('postViewContent').innerHTML = post.content;
+    document.getElementById('blogList').style.display = 'none';
+    document.getElementById('blogPost').style.display = 'block';
+    window.scrollTo(0, 0);
+  }
+
+  function closeBlogPost() {
+    document.getElementById('blogList').style.display = 'block';
+    document.getElementById('blogPost').style.display = 'none';
+  }
+
+  function publishPost() {
+    const title = document.getElementById('postTitle').value.trim();
+    const category = document.getElementById('postCategory').value;
+    const content = document.getElementById('postContent').value.trim();
+    if (!title || !content) { alert('Please add a title and content.'); return; }
+    const newPost = {
+      id: posts.length + 1,
+      title,
+      category,
+      date: new Date().toLocaleDateString('en-GB', { month: 'long', year: 'numeric' }),
+      excerpt: content.substring(0, 120) + '...',
+      content: content.split('\n').map(p => p ? `<p>${p}</p>` : '').join('')
+    };
+    posts.unshift(newPost);
+    document.getElementById('postTitle').value = '';
+    document.getElementById('postContent').value = '';
+    renderBlogGrid();
+    window.scrollTo(0, 0);
+    alert('Post published successfully!');
+  }
+
+  // ── INIT ──
+  renderHomePosts();
+</script>
+</body>
+</html>
