@@ -480,27 +480,33 @@
       <div class="contact-info-item reveal"><div class="contact-info-label">WhatsApp</div><div class="contact-info-value">+234 814 236 0016<br>+234 802 036 0922</div></div>
       <div class="contact-info-item reveal delay-1"><div class="contact-info-label">Location</div><div class="contact-info-value">Lagos, Nigeria · Available Remotely</div></div>
       <div style="margin-top:2rem;display:flex;gap:1rem;flex-wrap:wrap;" class="reveal delay-2">
-        <a href="https://wa.me/2348142360016" target="_blank" class="btn-primary">Chat on WhatsApp</a>
+        <a href="https://wa.me/2348142360016" target="_blank" class="btn-primary" style="background:var(--gold);color:var(--black);">Chat on WhatsApp</a>
         <a href="mailto:banabasanyanwu@gmail.com" class="btn-secondary" style="border-color:var(--grey-light);color:var(--white);">Send Email</a>
       </div>
     </div>
     <div class="contact-right">
       <p class="page-eyebrow reveal">Send a Message</p>
       <h2 style="font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:300;margin-bottom:2.5rem;" class="reveal delay-1">Get in Touch</h2>
-      <div class="form-group reveal delay-2"><label class="form-label">Your Name</label><input type="text" class="form-input" placeholder="Full name" /></div>
-      <div class="form-group reveal delay-3"><label class="form-label">Email Address</label><input type="email" class="form-input" placeholder="your@email.com" /></div>
-      <div class="form-group reveal"><label class="form-label">Subject</label><input type="text" class="form-input" placeholder="How can I help?" /></div>
-      <div class="form-group reveal delay-1"><label class="form-label">Message</label><textarea class="form-textarea" style="min-height:160px;" placeholder="Tell me about your project..."></textarea></div>
-      <button class="btn-primary reveal delay-2" style="width:100%;">Send Message</button>
+      <form id="contactForm" action="https://formspree.io/f/xlgayobb" method="POST" onsubmit="handleContactSubmit(event)">
+        <div class="form-group reveal delay-2"><label class="form-label">Your Name</label><input type="text" name="name" class="form-input" placeholder="Full name" required /></div>
+        <div class="form-group reveal delay-3"><label class="form-label">Email Address</label><input type="email" name="email" class="form-input" placeholder="your@email.com" required /></div>
+        <div class="form-group reveal"><label class="form-label">Subject</label><input type="text" name="subject" class="form-input" placeholder="How can I help?" /></div>
+        <div class="form-group reveal delay-1"><label class="form-label">Message</label><textarea name="message" class="form-textarea" style="min-height:160px;" placeholder="Tell me about your project..." required></textarea></div>
+        <button type="submit" class="btn-primary reveal delay-2" style="width:100%;" id="contactSubmitBtn">Send Message</button>
+        <p id="contactSuccess" style="display:none;margin-top:1rem;font-size:0.85rem;color:var(--gold);letter-spacing:0.08em;">Message sent. I'll be in touch shortly.</p>
+        <p id="contactError" style="display:none;margin-top:1rem;font-size:0.85rem;color:#c0392b;letter-spacing:0.08em;">Something went wrong. Please try again or email me directly.</p>
+      </form>
     </div>
   </div>
 </div>
 
 <script>
   let posts = [
-    { id:1, title:"How I Cleared Millions in Near-Expiry Pharma Stock Using Digital Ads", category:"Digital Marketing", date:"April 2025", excerpt:"A crisis brief, a tight deadline, and a strategy that turned potential loss into a complete sell-out. Here's exactly what I did.", content:`<p>When Prodserv Pharmaceuticals came to me with the brief, the situation was urgent. Millions worth of pharmaceutical stock was approaching its expiry date, and the clock was ticking.</p><h2>Understanding the Problem</h2><p>The first thing I did was reframe the challenge. This wasn't a crisis — it was a time-sensitive sales problem. And every sales problem has a digital solution.</p><h2>The Strategy</h2><p>I built a multi-platform paid media campaign targeting healthcare professionals, pharmacies, and B2B buyers. The messaging was urgent but professional — scarcity creates action when positioned correctly.</p><h2>The Result</h2><p>Within 3 months, the stock was cleared completely. Millions in potential losses became a sell-out success story.</p>` },
-    { id:2, title:"Why African Digital Marketers Have a Global Competitive Edge", category:"Scale From Africa", date:"March 2025", excerpt:"Working from Lagos and serving clients in London and New York taught me something powerful about the African creative advantage.", content:`<p>There's a narrative that needs to be dismantled: that working from Africa means working at a disadvantage. My experience says the opposite.</p><h2>The African Creative Edge</h2><p>When you grow up navigating limited resources with maximum creativity, you develop a problem-solving instinct that most Western marketers never need to build.</p><h2>Scale From Africa</h2><p>This is why I'm building the Scale From Africa movement. To show the next generation of African digital professionals that geography is not a limitation. It's a story. And stories, told well, sell.</p>` },
-    { id:3, title:"The AI Content Workflow That Changed How I Produce for Clients", category:"AI & Content", date:"February 2025", excerpt:"From Google Flow to Veo 3 to CapCut — here's the full production stack I use to create editorial-grade content at scale.", content:`<p>The question I get asked most often is: how are you producing this volume of content without a full team? The honest answer is AI — used strategically, not lazily.</p><h2>The Stack</h2><p>My current AI content production workflow runs through Google Flow for image generation, Veo 3 for cinematic video, and CapCut for assembly and editing.</p><h2>Prompt Engineering is the Skill</h2><p>Anyone can access these tools. The differentiator is prompt precision. I spend more time crafting prompts than in the actual generation phase.</p>` }
+    { id:1, title:"How I Grew a Fitness Brand\u2019s Video Views by 530% (And What Every Fitness Creator Can Learn From It)", category:"Video Editing", date:"30 April 2025", excerpt:"When Fitness Done Right brought me on as their video editor, their content was good. But the numbers were not reflecting any of that. Views were flat. Engagement was low. Here\u2019s exactly what changed.", content:`<p>When Fitness Done Right brought me on as their video editor, their content was good. The workouts were solid, the trainer was charismatic, and the brand had something real to say. But the numbers were not reflecting any of that.</p><p>Views were flat. Engagement was low. Good content was getting ignored.</p><p>That is a frustrating place to be as a brand. You are putting in the work and the algorithm is not rewarding you for it. I have seen it happen to a lot of fitness creators and the problem is almost never the content itself. It is how the content is packaged.</p><p>Within a few months of working together, video views grew by 530%. Here is exactly what changed.</p><p>The first three seconds were doing nothing. Most fitness videos open with an intro. Logo animation, music fade in, trainer walking into frame. By the time anything interesting happens, half the audience is already gone. On short-form platforms, you have about two to three seconds before someone scrolls. We cut every intro. Every video started mid-action. A rep already in progress. A bold statement. A result shown before it was explained.</p><p>The editing pace was too slow for the platform. There is a rhythm to fitness content that works and a rhythm that kills it. Long static shots feel like watching someone exercise in real time. We tightened every cut. Removed dead air. Added jump cuts at the right moments to keep energy high without making the video feel chaotic.</p><p>We stopped making videos for everyone. Fitness content that tries to appeal to everyone appeals to no one. The messaging was too broad and the visuals were too generic. We got specific. The editing style, the text overlays, the music choices, the pacing \u2014 all of it was calibrated for a specific viewer. Someone who trains seriously, follows results and respects no-nonsense content.</p><p>530% increase in video views. Not from posting more. Not from paid ads. Just from editing the content smarter. Good footage edited badly is wasted. Good footage edited well becomes a growth engine.</p><p>If your fitness brand is producing content that is not converting into views, followers or clients, the problem is probably not what you are filming. It is how it is being put together. That is exactly what I fix.</p><p>Want to know what your content could look like with the right editor behind it? Send me a message and let\u2019s talk.</p>` },
+    { id:2, title:"Why Most Fashion Brands Are Invisible on Social Media (And How to Fix It)", category:"Social Media", date:"2 May 2025", excerpt:"Fashion is one of the most visual industries in the world. Every product is designed to be seen. And yet most fashion brands on social media are completely invisible. Not because they are posting badly.", content:`<p>Fashion is one of the most visual industries in the world. Every product is designed to be seen. And yet most fashion brands on social media are completely invisible.</p><p>Not because they are posting badly. Because they are posting without a strategy.</p><p>There is a difference between being active on social media and actually growing on it. A lot of fashion brands are stuck being active. They post regularly, they use hashtags, they write captions. But the followers are not coming, the engagement is flat and the sales from social are close to zero.</p><p>They are posting for themselves instead of their audience. The most common mistake fashion brands make is posting what they want to show rather than what their audience wants to see. Product flat lays. Stock images. Generic promotional captions. Nobody shares a flat lay. Nobody saves a promotional caption. The content that grows fashion accounts is content that makes the viewer feel something. Aspiration. Desire. Recognition.</p><p>They have no content system. Posting randomly when inspiration strikes is not a strategy. The brands that grow consistently on social media are the ones with a content calendar, a clear posting rhythm and a defined brand voice that shows up the same way every single time. Consistency builds trust. Trust builds followers. Followers become customers.</p><p>They ignore the data. Every social media platform gives you free data about what is working and what is not. Most fashion brands never look at it. Which posts got the most saves? Which ones drove profile visits? That data tells you exactly what to do more of and what to stop wasting time on.</p><p>They treat every platform the same. What works on Instagram does not automatically work on TikTok. A fashion brand that reposts the same content across every platform without adapting it is leaving enormous growth on the table.</p><p>The fashion brands winning on social media right now have three things in common. A clear aesthetic that is instantly recognisable. A content system that runs without depending on daily inspiration. And a strategy that is built around data, not guesswork. That combination is not complicated. But it has to be intentional.</p><p>If your fashion brand is posting consistently and still not growing, the content is not the problem. The strategy behind it is.</p>` },
+    { id:3, title:"How I Cleared Millions in Near-Expiry Pharma Stock Using Digital Ads", category:"Digital Marketing", date:"April 2025", excerpt:"A crisis brief, a tight deadline, and a strategy that turned potential loss into a complete sell-out. Here's exactly what I did.", content:`<p>When Prodserv Pharmaceuticals came to me with the brief, the situation was urgent. Millions worth of pharmaceutical stock was approaching its expiry date, and the clock was ticking.</p><h2>Understanding the Problem</h2><p>The first thing I did was reframe the challenge. This wasn't a crisis — it was a time-sensitive sales problem. And every sales problem has a digital solution.</p><h2>The Strategy</h2><p>I built a multi-platform paid media campaign targeting healthcare professionals, pharmacies, and B2B buyers. The messaging was urgent but professional — scarcity creates action when positioned correctly.</p><h2>The Result</h2><p>Within 3 months, the stock was cleared completely. Millions in potential losses became a sell-out success story.</p>` },
+    { id:4, title:"Why African Digital Marketers Have a Global Competitive Edge", category:"Scale From Africa", date:"March 2025", excerpt:"Working from Lagos and serving clients in London and New York taught me something powerful about the African creative advantage.", content:`<p>There's a narrative that needs to be dismantled: that working from Africa means working at a disadvantage. My experience says the opposite.</p><h2>The African Creative Edge</h2><p>When you grow up navigating limited resources with maximum creativity, you develop a problem-solving instinct that most Western marketers never need to build.</p><h2>Scale From Africa</h2><p>This is why I'm building the Scale From Africa movement. To show the next generation of African digital professionals that geography is not a limitation. It's a story. And stories, told well, sell.</p>` },
+    { id:5, title:"The AI Content Workflow That Changed How I Produce for Clients", category:"AI & Content", date:"February 2025", excerpt:"From Google Flow to Veo 3 to CapCut — here's the full production stack I use to create editorial-grade content at scale.", content:`<p>The question I get asked most often is: how are you producing this volume of content without a full team? The honest answer is AI — used strategically, not lazily.</p><h2>The Stack</h2><p>My current AI content production workflow runs through Google Flow for image generation, Veo 3 for cinematic video, and CapCut for assembly and editing.</p><h2>Prompt Engineering is the Skill</h2><p>Anyone can access these tools. The differentiator is prompt precision. I spend more time crafting prompts than in the actual generation phase.</p>` }
   ];
 
   let currentCategory = 'all';
@@ -616,6 +622,34 @@
     renderBlogGrid();
     window.scrollTo(0, 0);
     alert('Post published successfully!');
+  }
+
+  async function handleContactSubmit(e) {
+    e.preventDefault();
+    const btn = document.getElementById('contactSubmitBtn');
+    const success = document.getElementById('contactSuccess');
+    const error = document.getElementById('contactError');
+    btn.textContent = 'Sending...';
+    btn.disabled = true;
+    success.style.display = 'none';
+    error.style.display = 'none';
+    try {
+      const res = await fetch('https://formspree.io/f/xlgayobb', {
+        method: 'POST',
+        body: new FormData(document.getElementById('contactForm')),
+        headers: { 'Accept': 'application/json' }
+      });
+      if (res.ok) {
+        success.style.display = 'block';
+        document.getElementById('contactForm').reset();
+      } else {
+        error.style.display = 'block';
+      }
+    } catch {
+      error.style.display = 'block';
+    }
+    btn.textContent = 'Send Message';
+    btn.disabled = false;
   }
 
   renderHomePosts();
