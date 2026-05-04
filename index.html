@@ -187,6 +187,24 @@
     .form-input:focus, .form-select:focus, .form-textarea:focus { border-color: var(--gold); }
     .form-textarea { min-height: 300px; resize: vertical; }
 
+    /* SERVICES */
+    .services-header { padding: 6rem 4rem 3rem; border-bottom: 1px solid var(--border); }
+    .services-grid { padding: 4rem; display: grid; grid-template-columns: repeat(2, 1fr); gap: 2px; background: var(--border); }
+    .service-card { background: var(--white); padding: 3rem; transition: background 0.2s; position: relative; }
+    .service-card:hover { background: var(--cream); }
+    .service-icon { font-size: 2rem; margin-bottom: 1.2rem; }
+    .service-name { font-family: 'Cormorant Garamond', serif; font-size: 1.8rem; font-weight: 400; margin-bottom: 0.3rem; }
+    .service-addon { display: inline-block; font-size: 0.62rem; font-weight: 500; letter-spacing: 0.15em; text-transform: uppercase; color: var(--black); background: var(--gold); padding: 0.2rem 0.6rem; margin-left: 0.6rem; vertical-align: middle; position: relative; top: -2px; }
+    .service-bullets { list-style: none; margin: 1.5rem 0 2rem; }
+    .service-bullets li { font-size: 0.88rem; color: var(--grey); line-height: 1.7; padding: 0.4rem 0; border-bottom: 1px solid var(--border); display: flex; gap: 0.7rem; }
+    .service-bullets li::before { content: '—'; color: var(--gold); flex-shrink: 0; }
+    .service-cta { font-size: 0.75rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--black); text-decoration: none; border-bottom: 1px solid var(--black); padding-bottom: 2px; transition: color 0.2s, border-color 0.2s; }
+    .service-cta:hover { color: var(--gold); border-color: var(--gold); }
+    .services-bottom { background: var(--black); padding: 4rem; display: flex; align-items: center; justify-content: space-between; gap: 2rem; flex-wrap: wrap; }
+    .services-bottom-text h3 { font-family: 'Cormorant Garamond', serif; font-size: 2rem; font-weight: 300; color: var(--white); margin-bottom: 0.5rem; }
+    .services-bottom-text p { font-size: 0.9rem; color: var(--grey-light); }
+    @media (max-width: 900px) { .services-grid { padding: 1.5rem; grid-template-columns: 1fr; } .services-header { padding: 3rem 1.5rem 2rem; } .services-bottom { padding: 3rem 1.5rem; flex-direction: column; text-align: center; } }
+
     /* CONTACT */
     .contact-container { display: grid; grid-template-columns: 1fr 1fr; min-height: calc(100vh - 80px); }
     .contact-left { padding: 6rem 4rem; background: var(--black); color: var(--white); display: flex; flex-direction: column; justify-content: center; }
@@ -196,6 +214,20 @@
     .contact-info-label { font-size: 0.68rem; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; color: var(--grey-light); margin-bottom: 0.3rem; }
     .contact-info-value { font-size: 0.95rem; color: var(--white); }
     .contact-right { padding: 6rem 4rem; display: flex; flex-direction: column; justify-content: center; }
+
+    /* CTA STRIP */
+    .cta-strip { background: var(--black); padding: 5rem 4rem; text-align: center; position: relative; overflow: hidden; }
+    .cta-gold-line { position: absolute; top: 0; left: 0; height: 2px; width: 0; background: var(--gold); transition: width 0.8s cubic-bezier(0.4,0,0.2,1); }
+    .cta-gold-line.animate { width: 100%; }
+    .cta-inner { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease 0.85s, transform 0.6s ease 0.85s; }
+    .cta-inner.visible { opacity: 1; transform: translateY(0); }
+    .cta-eyebrow { font-size: 0.72rem; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 1rem; }
+    .cta-heading { font-family: 'Cormorant Garamond', serif; font-size: 2.8rem; font-weight: 300; color: var(--white); margin-bottom: 1rem; line-height: 1.2; }
+    .cta-sub { color: var(--grey-light); font-size: 0.95rem; margin-bottom: 2.5rem; max-width: 520px; margin-left: auto; margin-right: auto; }
+    .cta-btn { display: inline-block; padding: 1rem 2.5rem; background: var(--gold); color: var(--black); font-size: 0.78rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; text-decoration: none; transition: background 0.2s; }
+    .cta-btn:hover { background: var(--gold-light); }
+    @keyframes ctaPulse { 0% { box-shadow: 0 0 0 0 rgba(184,151,46,0.7); } 70% { box-shadow: 0 0 0 18px rgba(184,151,46,0); } 100% { box-shadow: 0 0 0 0 rgba(184,151,46,0); } }
+    .cta-btn.pulse { animation: ctaPulse 0.9s ease forwards; }
 
     /* FOOTER */
     footer { padding: 3rem 4rem; border-top: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; background: var(--black); color: var(--white); }
@@ -228,7 +260,6 @@
       .popup-box { padding: 2rem; }
     }
   </style>
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23B8972E'/%3E%3Ctext x='16' y='22.5' font-family='Georgia%2C Times New Roman%2C serif' font-size='14' font-weight='700' fill='%23000000' text-anchor='middle' letter-spacing='0.5'%3EBA%3C/text%3E%3C/svg%3E">
 </head>
 <body>
 
@@ -255,6 +286,7 @@
     <li><a href="#" onclick="showPage('home')">Home</a></li>
     <li><a href="#" onclick="showPage('about')">About</a></li>
     <li><a href="#" onclick="showPage('portfolio')">Portfolio</a></li>
+    <li><a href="#" onclick="showPage('services')">Services</a></li>
     <li><a href="#" onclick="showPage('blog')">Blog</a></li>
     <li><a href="#" onclick="showPage('contact')">Contact</a></li>
   </ul>
@@ -267,6 +299,7 @@
   <a href="#" onclick="showPage('home');closeMenu()">Home</a>
   <a href="#" onclick="showPage('about');closeMenu()">About</a>
   <a href="#" onclick="showPage('portfolio');closeMenu()">Portfolio</a>
+  <a href="#" onclick="showPage('services');closeMenu()">Services</a>
   <a href="#" onclick="showPage('blog');closeMenu()">Blog</a>
   <a href="#" onclick="showPage('contact');closeMenu()">Contact</a>
 </div>
@@ -297,29 +330,34 @@
         <div class="stat-brand">Fitness Done Right · USA</div>
       </div>
       <div class="stat-card reveal delay-2">
+        <div class="stat-number"><span class="count-up" data-target="1860">0</span>%</div>
+        <div class="stat-desc">Increase in YouTube subscribers in 28 days, zero ad spend</div>
+        <div class="stat-brand">Phatbird · United Kingdom</div>
+      </div>
+      <div class="stat-card reveal delay-3">
+        <div class="stat-number"><span class="count-up" data-target="75">0</span>%</div>
+        <div class="stat-desc">Increase in web traffic in the first quarter through Google Analytics-driven strategy</div>
+        <div class="stat-brand">Prodserv Pharmaceuticals · Nigeria</div>
+      </div>
+      <div class="stat-card reveal">
         <div class="stat-number"><span class="count-up" data-target="1100">0</span>%</div>
         <div class="stat-desc">Brand reach increase in under six months</div>
         <div class="stat-brand">Nudeya</div>
+      </div>
+      <div class="stat-card reveal delay-1">
+        <div class="stat-number"><span class="count-up" data-target="3000">0</span>%</div>
+        <div class="stat-desc">Combined reach increase across Facebook and Instagram</div>
+        <div class="stat-brand">Phatbird · United Kingdom</div>
+      </div>
+      <div class="stat-card reveal delay-2">
+        <div class="stat-number">100K+</div>
+        <div class="stat-desc">Monthly Pinterest views driven through organic content strategy</div>
+        <div class="stat-brand">Phatbird · United Kingdom</div>
       </div>
       <div class="stat-card reveal delay-3">
         <div class="stat-number"><span class="count-up" data-target="500">0</span>%</div>
         <div class="stat-desc">Follower growth achieved in just 3 months</div>
         <div class="stat-brand">Nudeya</div>
-      </div>
-      <div class="stat-card reveal">
-        <div class="stat-number">100K+</div>
-        <div class="stat-desc">Monthly Pinterest views driven through organic content strategy</div>
-        <div class="stat-brand">Phatbird · United Kingdom</div>
-      </div>
-      <div class="stat-card reveal delay-1">
-        <div class="stat-number"><span class="count-up" data-target="1860">0</span>%</div>
-        <div class="stat-desc">Increase in YouTube subscribers in 28 days, zero ad spend</div>
-        <div class="stat-brand">Phatbird · United Kingdom</div>
-      </div>
-      <div class="stat-card reveal delay-2">
-        <div class="stat-number"><span class="count-up" data-target="3000">0</span>%</div>
-        <div class="stat-desc">Combined reach increase across Facebook and Instagram</div>
-        <div class="stat-brand">Phatbird · United Kingdom</div>
       </div>
     </div>
   </section>
@@ -350,11 +388,14 @@
     </div>
   </section>
 
-  <section style="background:var(--black);padding:5rem 4rem;text-align:center;">
-    <p style="font-size:0.72rem;font-weight:500;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem;">Ready to Grow?</p>
-    <h2 style="font-family:'Cormorant Garamond',serif;font-size:2.8rem;font-weight:300;color:var(--white);margin-bottom:1rem;line-height:1.2;">Let's build something<br>that moves numbers.</h2>
-    <p style="color:var(--grey-light);font-size:0.95rem;margin-bottom:2.5rem;max-width:480px;margin-left:auto;margin-right:auto;">Social media strategy, video editing, or AI-powered content — tell me what your brand needs.</p>
-    <a href="#" onclick="showPage('contact')" style="display:inline-block;padding:1rem 2.5rem;background:var(--gold);color:var(--black);font-size:0.78rem;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;text-decoration:none;transition:background 0.2s;">Start the Conversation</a>
+  <section class="cta-strip" id="ctaStrip">
+    <div class="cta-gold-line" id="ctaLine"></div>
+    <div class="cta-inner" id="ctaInner">
+      <p class="cta-eyebrow">Ready to Grow?</p>
+      <h2 class="cta-heading">Let's build something<br>that moves numbers.</h2>
+      <p class="cta-sub">Social media, digital marketing, video editing, AI-powered content — tell me what your brand needs.</p>
+      <a href="https://wa.me/2348142360016?text=Hi%20Banabas%2C%20I%20need%20help%20with%20my%20brand.%20Here%27s%20what%20I%27m%20looking%20for%E2%80%94" target="_blank" class="cta-btn" id="ctaBtn">Show Me What's Possible</a>
+    </div>
   </section>
 
   <section class="blog-preview-section">
@@ -429,16 +470,92 @@
       <button class="filter-tab active" onclick="filterCases('all',this)">All</button>
       <button class="filter-tab" onclick="filterCases('social',this)">Social Media</button>
       <button class="filter-tab" onclick="filterCases('video',this)">Video Editing</button>
+      <button class="filter-tab" onclick="filterCases('digital',this)">Digital Marketing</button>
       <button class="filter-tab" onclick="filterCases('paid',this)">Paid Media</button>
     </div>
   </div>
   <div class="portfolio-grid">
-    <div class="case-card reveal" data-category="paid"><div class="case-brand">Prodserv Pharmaceuticals</div><div class="case-location">Nigeria</div><div class="case-result">Millions Cleared</div><div class="case-desc">Turned a crisis into a win — sold out near-expiry pharmaceutical stock worth millions using targeted digital ads and a precision-built marketing strategy, all within 3 months.</div><div class="case-tags"><span class="case-tag">Paid Media</span><span class="case-tag">Strategy</span><span class="case-tag">Crisis Marketing</span></div></div>
+    <div class="case-card reveal" data-category="paid digital"><div class="case-brand">Prodserv Pharmaceuticals</div><div class="case-location">Nigeria</div><div class="case-result">Millions Cleared</div><div class="case-desc">Turned a crisis into a win — sold out near-expiry pharmaceutical stock worth millions using targeted digital ads and a precision-built marketing strategy, all within 3 months.</div><div class="case-tags"><span class="case-tag">Paid Media</span><span class="case-tag">Strategy</span><span class="case-tag">Crisis Marketing</span></div></div>
     <div class="case-card reveal delay-1" data-category="video"><div class="case-brand">Fitness Done Right</div><div class="case-location">United States · Remote</div><div class="case-result">530%</div><div class="case-desc">Delivered a 530% increase in video views through strategic content production, short-form video editing, and platform-specific optimisation across YouTube and social platforms.</div><div class="case-tags"><span class="case-tag">Video Editing</span><span class="case-tag">Content Strategy</span><span class="case-tag">YouTube</span></div></div>
+    <div class="case-card reveal" data-category="social digital"><div class="case-brand">Phatbird</div><div class="case-location">United Kingdom · Remote</div><div class="case-result">3,000%</div><div class="case-desc">100K+ monthly Pinterest views, 1,860% YouTube subscriber growth in 28 days, and 3,000% combined reach increase across Facebook and Instagram — all organic, zero ad spend.</div><div class="case-tags"><span class="case-tag">Social Media</span><span class="case-tag">AI Content</span><span class="case-tag">Luxury Fashion</span></div></div>
+    <div class="case-card reveal delay-1" data-category="digital"><div class="case-brand">Prodserv Pharmaceuticals</div><div class="case-location">Nigeria</div><div class="case-result">75%</div><div class="case-desc">Achieved a 75% increase in website traffic in the first quarter through a Google Analytics-driven strategy — identifying high-value channels, eliminating wasted spend, and optimising for measurable results.</div><div class="case-tags"><span class="case-tag">Digital Marketing</span><span class="case-tag">Google Analytics</span><span class="case-tag">Web Traffic</span></div></div>
     <div class="case-card reveal" data-category="social"><div class="case-brand">Nudeya</div><div class="case-location">Nigeria</div><div class="case-result">1,100%</div><div class="case-desc">Achieved a 1,100% increase in brand reach alongside 500% follower growth in just 3 months through data-driven hashtag strategy, content calendar execution, and audience targeting.</div><div class="case-tags"><span class="case-tag">Social Media</span><span class="case-tag">Growth Strategy</span><span class="case-tag">Content</span></div></div>
-    <div class="case-card reveal delay-1" data-category="social"><div class="case-brand">Phatbird</div><div class="case-location">United Kingdom · Remote</div><div class="case-result">3,000%</div><div class="case-desc">100K+ monthly Pinterest views, 1,860% YouTube subscriber growth in 28 days, and 3,000% combined reach increase across Facebook and Instagram — all organic, zero ad spend.</div><div class="case-tags"><span class="case-tag">Social Media</span><span class="case-tag">AI Content</span><span class="case-tag">Luxury Fashion</span></div></div>
-    <div class="case-card reveal" data-category="social"><div class="case-brand">HarvestNow</div><div class="case-location">United Kingdom · Remote</div><div class="case-result">Active</div><div class="case-desc">Full social media management for a bold UK Christian lifestyle brand across Instagram, TikTok, Facebook, and YouTube — driving evangelism content, community growth, and platform optimisation.</div><div class="case-tags"><span class="case-tag">Social Media</span><span class="case-tag">Community</span><span class="case-tag">Multi-Platform</span></div></div>
-    <div class="case-card reveal delay-1" data-category="social"><div class="case-brand">Prodserv Pharmaceuticals</div><div class="case-location">Nigeria</div><div class="case-result">300%</div><div class="case-desc">Grew social media following by 300% in 6 months through consistent brand voice, strategic content planning, and community engagement across all major platforms.</div><div class="case-tags"><span class="case-tag">Social Media</span><span class="case-tag">Growth</span><span class="case-tag">Brand Building</span></div></div>
+    <div class="case-card reveal delay-1" data-category="social"><div class="case-brand">HarvestNow</div><div class="case-location">United Kingdom · Remote</div><div class="case-result">Active</div><div class="case-desc">Full social media management for a bold UK Christian lifestyle brand across Instagram, TikTok, Facebook, and YouTube — driving evangelism content, community growth, and platform optimisation.</div><div class="case-tags"><span class="case-tag">Social Media</span><span class="case-tag">Community</span><span class="case-tag">Multi-Platform</span></div></div>
+    <div class="case-card reveal" data-category="social digital"><div class="case-brand">Prodserv Pharmaceuticals</div><div class="case-location">Nigeria</div><div class="case-result">300%</div><div class="case-desc">Grew social media following by 300% in 6 months through consistent brand voice, strategic content planning, and community engagement across all major platforms.</div><div class="case-tags"><span class="case-tag">Social Media</span><span class="case-tag">Growth</span><span class="case-tag">Brand Building</span></div></div>
+  </div>
+  <footer>
+    <span class="footer-name">Banabas Anyanwu</span>
+    <ul class="footer-links">
+      <li><a href="mailto:banabasanyanwu@gmail.com">Email</a></li>
+      <li><a href="https://wa.me/2348142360016" target="_blank">WhatsApp</a></li>
+      <li><a href="https://www.linkedin.com/in/banabas-anyanwu-823174146" target="_blank">LinkedIn</a></li>
+    </ul>
+    <span class="footer-copy">© 2026 Banabas Anyanwu</span>
+  </footer>
+</div>
+
+<!-- SERVICES PAGE -->
+<div id="page-services" class="page">
+  <div class="services-header">
+    <p class="page-eyebrow reveal">Services</p>
+    <h1 class="page-heading reveal delay-1">What I Do.<br>What You Get.</h1>
+  </div>
+  <div class="services-grid">
+    <div class="service-card reveal">
+      <div class="service-icon">📱</div>
+      <div class="service-name">Social Media Management</div>
+      <ul class="service-bullets">
+        <li>Full content calendar planning and execution</li>
+        <li>Platform-specific strategy across Instagram, TikTok, Facebook, and YouTube</li>
+        <li>Data-driven hashtag research and audience targeting</li>
+        <li>Community management and engagement</li>
+        <li>Monthly performance reports with actionable insights</li>
+      </ul>
+      <a href="https://wa.me/2348142360016?text=Hi%20Banabas%2C%20I%20need%20help%20with%20my%20brand.%20Here%27s%20what%20I%27m%20looking%20for%E2%80%94" target="_blank" class="service-cta">Get Started →</a>
+    </div>
+    <div class="service-card reveal delay-1">
+      <div class="service-icon">🎬</div>
+      <div class="service-name">Video Editing</div>
+      <ul class="service-bullets">
+        <li>Short-form content optimised for TikTok, Reels, and YouTube Shorts</li>
+        <li>Hook-first editing to maximise retention in the first 3 seconds</li>
+        <li>Captions, text overlays, and motion graphics</li>
+        <li>Colour grading and audio balancing for professional finish</li>
+        <li>Platform-native pacing tailored to your audience</li>
+      </ul>
+      <a href="https://wa.me/2348142360016?text=Hi%20Banabas%2C%20I%20need%20help%20with%20my%20brand.%20Here%27s%20what%20I%27m%20looking%20for%E2%80%94" target="_blank" class="service-cta">Get Started →</a>
+    </div>
+    <div class="service-card reveal">
+      <div class="service-icon">📊</div>
+      <div class="service-name">Digital Marketing</div>
+      <ul class="service-bullets">
+        <li>End-to-end digital marketing strategy built around your goals</li>
+        <li>Google Ads campaign setup, management, and optimisation</li>
+        <li>Google Analytics setup and conversion tracking</li>
+        <li>SEO and SEM to drive sustainable organic traffic</li>
+        <li>Paid social campaigns across Meta and TikTok Ads</li>
+      </ul>
+      <a href="https://wa.me/2348142360016?text=Hi%20Banabas%2C%20I%20need%20help%20with%20my%20brand.%20Here%27s%20what%20I%27m%20looking%20for%E2%80%94" target="_blank" class="service-cta">Get Started →</a>
+    </div>
+    <div class="service-card reveal delay-1">
+      <div class="service-icon">💻</div>
+      <div class="service-name">Website Building <span class="service-addon">Add-On</span></div>
+      <ul class="service-bullets">
+        <li>Clean, fast, single-file portfolio and business websites</li>
+        <li>Mobile-responsive design built for credibility and conversions</li>
+        <li>Integrated contact forms, WhatsApp CTAs, and analytics</li>
+        <li>Deployed on Vercel with a custom domain setup</li>
+        <li>Ideal as an add-on to any marketing or content retainer</li>
+      </ul>
+      <a href="https://wa.me/2348142360016?text=Hi%20Banabas%2C%20I%20need%20help%20with%20my%20brand.%20Here%27s%20what%20I%27m%20looking%20for%E2%80%94" target="_blank" class="service-cta">Get Started →</a>
+    </div>
+  </div>
+  <div class="services-bottom">
+    <div class="services-bottom-text">
+      <h3>Not sure which service?</h3>
+      <p>Tell me about your brand and I'll tell you exactly what it needs.</p>
+    </div>
+    <a href="https://wa.me/2348142360016?text=Hi%20Banabas%2C%20I%20need%20help%20with%20my%20brand.%20Here%27s%20what%20I%27m%20looking%20for%E2%80%94" target="_blank" class="btn-primary" style="background:var(--gold);color:var(--black);white-space:nowrap;">Show Me What's Possible</a>
   </div>
   <footer>
     <span class="footer-name">Banabas Anyanwu</span>
@@ -536,7 +653,11 @@
     { id:2, image:"blog2.jpeg", title:"Why Most Fashion Brands Are Invisible on Social Media (And How to Fix It)", category:"Social Media", date:"2 May 2025", excerpt:"Fashion is one of the most visual industries in the world. Every product is designed to be seen. And yet most fashion brands on social media are completely invisible. Not because they are posting badly.", content:`<p>Fashion is one of the most visual industries in the world. Every product is designed to be seen. And yet most fashion brands on social media are completely invisible.</p><p>Not because they are posting badly. Because they are posting without a strategy.</p><p>There is a difference between being active on social media and actually growing on it. A lot of fashion brands are stuck being active. They post regularly, they use hashtags, they write captions. But the followers are not coming, the engagement is flat and the sales from social are close to zero.</p><p>They are posting for themselves instead of their audience. The most common mistake fashion brands make is posting what they want to show rather than what their audience wants to see. Product flat lays. Stock images. Generic promotional captions. Nobody shares a flat lay. Nobody saves a promotional caption. The content that grows fashion accounts is content that makes the viewer feel something. Aspiration. Desire. Recognition.</p><p>They have no content system. Posting randomly when inspiration strikes is not a strategy. The brands that grow consistently on social media are the ones with a content calendar, a clear posting rhythm and a defined brand voice that shows up the same way every single time. Consistency builds trust. Trust builds followers. Followers become customers.</p><p>They ignore the data. Every social media platform gives you free data about what is working and what is not. Most fashion brands never look at it. Which posts got the most saves? Which ones drove profile visits? That data tells you exactly what to do more of and what to stop wasting time on.</p><p>They treat every platform the same. What works on Instagram does not automatically work on TikTok. A fashion brand that reposts the same content across every platform without adapting it is leaving enormous growth on the table.</p><p>The fashion brands winning on social media right now have three things in common. A clear aesthetic that is instantly recognisable. A content system that runs without depending on daily inspiration. And a strategy that is built around data, not guesswork. That combination is not complicated. But it has to be intentional.</p><p>If your fashion brand is posting consistently and still not growing, the content is not the problem. The strategy behind it is.</p>` },
     { id:3, image:"blog3.jpeg", title:"How I Cleared Millions in Near-Expiry Pharma Stock Using Digital Ads", category:"Digital Marketing", date:"April 2025", excerpt:"A crisis brief, a tight deadline, and a strategy that turned potential loss into a complete sell-out. Here's exactly what I did.", content:`<p>When Prodserv Pharmaceuticals came to me with the brief, the situation was urgent. Millions worth of pharmaceutical stock was approaching its expiry date, and the clock was ticking.</p><h2>Understanding the Problem</h2><p>The first thing I did was reframe the challenge. This wasn't a crisis — it was a time-sensitive sales problem. And every sales problem has a digital solution.</p><h2>The Strategy</h2><p>I built a multi-platform paid media campaign targeting healthcare professionals, pharmacies, and B2B buyers. The messaging was urgent but professional — scarcity creates action when positioned correctly.</p><h2>The Result</h2><p>Within 3 months, the stock was cleared completely. Millions in potential losses became a sell-out success story.</p>` },
     { id:4, image:"blog5.jpeg", title:"Why African Digital Marketers Have a Global Competitive Edge", category:"Scale From Africa", date:"March 2025", excerpt:"Working from Lagos and serving clients in London and New York taught me something powerful about the African creative advantage.", content:`<p>There's a narrative that needs to be dismantled: that working from Africa means working at a disadvantage. My experience says the opposite.</p><h2>The African Creative Edge</h2><p>When you grow up navigating limited resources with maximum creativity, you develop a problem-solving instinct that most Western marketers never need to build.</p><h2>Scale From Africa</h2><p>This is why I'm building the Scale From Africa movement. To show the next generation of African digital professionals that geography is not a limitation. It's a story. And stories, told well, sell.</p>` },
-    { id:5, image:"blog4.jpeg", title:"The AI Content Workflow That Changed How I Produce for Clients", category:"AI & Content", date:"February 2025", excerpt:"From Google Flow to Veo 3 to CapCut — here's the full production stack I use to create editorial-grade content at scale.", content:`<p>The question I get asked most often is: how are you producing this volume of content without a full team? The honest answer is AI — used strategically, not lazily.</p><h2>The Stack</h2><p>My current AI content production workflow runs through Google Flow for image generation, Veo 3 for cinematic video, and CapCut for assembly and editing.</p><h2>Prompt Engineering is the Skill</h2><p>Anyone can access these tools. The differentiator is prompt precision. I spend more time crafting prompts than in the actual generation phase.</p>` }
+    { id:5, image:"blog4.jpeg", title:"The AI Content Workflow That Changed How I Produce for Clients", category:"AI & Content", date:"February 2025", excerpt:"From Google Flow to Veo 3 to CapCut — here's the full production stack I use to create editorial-grade content at scale.", content:`<p>The question I get asked most often is: how are you producing this volume of content without a full team? The honest answer is AI — used strategically, not lazily.</p><h2>The Stack</h2><p>My current AI content production workflow runs through Google Flow for image generation, Veo 3 for cinematic video, and CapCut for assembly and editing.</p><h2>Prompt Engineering is the Skill</h2><p>Anyone can access these tools. The differentiator is prompt precision. I spend more time crafting prompts than in the actual generation phase.</p>` },
+    { id:6, image:null, title:"Why Most Businesses Are Wasting Their Ad Budget", category:"Digital Marketing", date:"4 May 2025", excerpt:"Most businesses are spending money on ads. Very few are spending it well. The difference is not budget — it is strategy. Here is where it usually breaks down.", content:`<p>Most businesses are spending money on ads. Very few are spending it well.</p><p>The difference is not budget. It is strategy. And the gap between the two is where money quietly disappears every single month.</p><p>I have audited enough ad accounts to know that the same mistakes keep showing up regardless of industry, location, or spend level. Here is where it usually breaks down.</p><p>They are targeting too broadly. More reach does not mean more results. When you target everyone, your ad has to say something generic enough to appeal to all of them — and generic ads convert poorly. The best-performing campaigns are built around a specific person with a specific problem, not a demographic bucket.</p><p>They are measuring the wrong things. Impressions feel good. Clicks feel good. But impressions and clicks do not pay salaries. If your ad reporting stops before it reaches revenue, you have no idea whether your budget is working. Conversion tracking, attribution, and cost-per-acquisition are the only numbers that tell the real story.</p><p>They are sending paid traffic to a weak landing page. You can have a perfect ad and waste every penny of it if the page it sends people to is slow, confusing, or unconvincing. The ad gets attention. The page closes the deal. Both have to be good.</p><p>They are not testing anything. Running one ad version and wondering why it is not performing is not a strategy. The brands with the strongest ad performance are the ones that are constantly testing creative, copy, and audiences — and cutting what does not convert.</p><p>Ad budget is not a cost. Used correctly, it is the most scalable growth tool available. Used without a strategy, it is just an expensive way to prove that your offer needs work.</p><p>If you want to know exactly where your budget is leaking and what to do about it, send me a message.</p>` },
+    { id:7, image:null, title:"How AI Is Changing Content Creation for Small Brands", category:"AI & Content", date:"7 May 2025", excerpt:"AI has not replaced the need for strategy. It has made the gap between brands that have one and brands that do not bigger than it has ever been.", content:`<p>The conversation around AI and content creation is full of noise. Either AI is going to take every creative job, or it is a gimmick that produces obvious, soulless output. Neither of those is what I see in practice.</p><p>What I actually see is this: AI has made it possible for small brands to produce content at a scale and quality that was previously only available to brands with large teams and large budgets. And it has made the gap between brands that have a strategy and brands that do not bigger than it has ever been.</p><p>Because AI does not give you a strategy. It gives you execution capacity. If you know what you are trying to say and who you are trying to say it to, AI multiplies your ability to say it consistently, quickly, and at quality. If you do not know those things, AI just helps you produce more confusion, faster.</p><p>The small brands winning with AI right now are the ones using it to do things they could not do before — not to replace things they were already doing well. Generating product images that look editorial instead of relying on supplier stock photos. Producing short-form video content without needing a full production crew. Testing ten variations of ad creative in the time it used to take to produce one.</p><p>The tool matters less than how it is used. Veo 3, Imagen, Kling AI — I use all of them. But the output is only as good as the brief going in. Prompt engineering is the real skill. Anyone can access the tools. Very few are using them with enough precision to produce content that does not look like it came from a machine.</p><p>If your brand is not yet building AI into its content workflow, you are not saving money. You are falling behind.</p>` },
+    { id:8, image:null, title:"How to Land UK and US Clients as an African Freelancer", category:"Scale From Africa", date:"11 May 2025", excerpt:"Geography is not the barrier most African freelancers think it is. The barrier is usually positioning. Here is how to fix it.", content:`<p>The question I get from African freelancers more than any other is some version of: how do I get clients in the UK or US when I am based here?</p><p>The assumption behind that question is that geography is the barrier. It is not. Or rather — it is rarely the main one. The real barrier is usually positioning.</p><p>Here is what I mean. If your pitch is "I can do this work for cheaper than someone in your country," you have already made geography the story. And that is a race to the bottom you will eventually lose. There is always someone willing to do it cheaper. That is not a business. That is a trap.</p><p>The freelancers I know who are consistently landing UK and US clients are not leading with price. They are leading with results. Specific, documented, credible results. A portfolio that speaks before they do. A personal brand that signals professional seriousness — a proper website, a clean LinkedIn, work samples that are clearly good.</p><p>The time zone gap is real but manageable. UK clients especially are used to working with teams across time zones. What they are not willing to tolerate is slow communication, missed deadlines, or vague status updates. Over-communicate. Be faster to respond than they expect. Make working with you feel easier than working with someone local.</p><p>And build your presence where your ideal clients already are. LinkedIn is not optional. A newsletter or content platform that demonstrates your expertise is not optional. Visibility creates trust over time. Trust creates inbound interest. Inbound interest creates the best clients — the ones who come to you already convinced.</p><p>Africa is not a disadvantage. It is context. Story. Proof that you have built something without the infrastructure most Western freelancers take for granted. That is not something to hide. It is something to own.</p>` },
+    { id:9, image:null, title:"Why Your Brand Videos Are Not Converting", category:"Video Editing", date:"14 May 2025", excerpt:"The problem with most brand videos is not the camera, the location, or the budget. It is what happens in the first three seconds.", content:`<p>Most brand videos fail before anyone has finished watching them.</p><p>Not because the production was poor. Not because the product is bad. Because the video was built around what the brand wanted to show rather than what the viewer needed to see — and it lost people in the first few seconds before it had a chance to do either.</p><p>The first three seconds are everything. On every short-form platform, the decision to keep watching or scroll away happens almost instantly. Most brand videos open with a logo, a location shot, or a slow reveal. That is the video talking about itself before it has given the viewer any reason to care. By the time something interesting happens, the audience is already gone.</p><p>The hook has to come first. A result. A bold claim. A pattern interrupt. Something that makes the next three seconds feel worth staying for. That decision happens before any editing technique, before any visual effect, before anything else. Get the first frame wrong and nothing else can save the video.</p><p>Pace matters more than most brands realise. The rhythm of cuts, the length of individual shots, the energy of the music — all of it is communicating something about the brand before a single word is heard. Slow, cinematic cuts say one thing. Fast, punchy edits say another. Neither is wrong. But mismatching the editing pace to the platform or the audience is almost always wrong.</p><p>And the call to action is usually an afterthought. A good video builds toward something. Every second of it should be moving the viewer toward a specific next step. If that step is unclear, or arrives too late, or asks for too much, the video ends and nothing happens. Views without action are just numbers.</p><p>If your brand is producing video content that looks good but is not converting into followers, leads, or sales — the problem is almost never the camera or the location. It is the strategy behind the edit. That is exactly what I fix.</p>` }
   ];
 
   let currentCategory = 'all';
@@ -595,7 +716,10 @@
   function filterCases(cat, btn) {
     document.querySelectorAll('.filter-tab').forEach(t => t.classList.remove('active'));
     btn.classList.add('active');
-    document.querySelectorAll('.case-card').forEach(card => { card.style.display = (cat === 'all' || card.dataset.category === cat) ? 'block' : 'none'; });
+    document.querySelectorAll('.case-card').forEach(card => {
+      const cats = card.dataset.category ? card.dataset.category.split(' ') : [];
+      card.style.display = (cat === 'all' || cats.includes(cat)) ? 'block' : 'none';
+    });
   }
 
   function renderBlogGrid(filter = '') {
@@ -692,6 +816,29 @@
 
   renderHomePosts();
   setTimeout(initReveal, 300);
+
+  // CTA STRIP ANIMATION
+  const ctaStrip = document.getElementById('ctaStrip');
+  if (ctaStrip) {
+    const ctaObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const line = document.getElementById('ctaLine');
+          const inner = document.getElementById('ctaInner');
+          const btn = document.getElementById('ctaBtn');
+          line.classList.add('animate');
+          setTimeout(() => {
+            inner.classList.add('visible');
+            setTimeout(() => {
+              if (btn) { btn.classList.add('pulse'); }
+            }, 900);
+          }, 850);
+          ctaObserver.disconnect();
+        }
+      });
+    }, { threshold: 0.3 });
+    ctaObserver.observe(ctaStrip);
+  }
 </script>
 </body>
 </html>
