@@ -27,12 +27,12 @@
     body { font-family: 'DM Sans', sans-serif; background: var(--white); color: var(--black); font-size: 16px; line-height: 1.6; overflow-x: hidden; }
 
     /* OPEN TO PROJECTS */
-    .available-badge { display: inline-flex; align-items: center; gap: 0.5rem; margin-bottom: 1.5rem; text-decoration: none; }
-    .available-dot { width: 9px; height: 9px; border-radius: 50%; background: #22c55e; flex-shrink: 0; }
+    .available-badge { display: inline-flex; align-items: center; gap: 0.6rem; margin-bottom: 1.5rem; text-decoration: none; background: #0a0a0a; padding: 0.45rem 1rem 0.45rem 0.75rem; border-radius: 100px; }
+    .available-dot { width: 8px; height: 8px; border-radius: 50%; background: #22c55e; flex-shrink: 0; box-shadow: 0 0 0 3px rgba(34,197,94,0.25); }
     @keyframes greenPulse { 0% { box-shadow: 0 0 0 0 rgba(34,197,94,0.7); } 70% { box-shadow: 0 0 0 8px rgba(34,197,94,0); } 100% { box-shadow: 0 0 0 0 rgba(34,197,94,0); } }
     .available-dot { animation: greenPulse 1.8s ease-in-out infinite; }
-    .available-text { font-size: 0.72rem; font-weight: 500; letter-spacing: 0.15em; text-transform: uppercase; color: #22c55e; transition: opacity 0.2s; }
-    .available-badge:hover .available-text { opacity: 0.75; }
+    .available-text { font-size: 0.7rem; font-weight: 500; letter-spacing: 0.13em; text-transform: uppercase; color: #f8f6f2; transition: opacity 0.2s; }
+    .available-badge:hover { opacity: 0.85; }
 
     /* AI CALLOUT */
     .ai-callout { background: var(--black); padding: 5rem 4rem; border-bottom: 1px solid #1a1a1a; }
@@ -102,8 +102,9 @@
     nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 1.2rem 4rem; background: rgba(248,246,242,0.92); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); }
     .nav-logo { font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; font-weight: 600; letter-spacing: 0.05em; color: var(--black); text-decoration: none; }
     .nav-links { display: flex; gap: 2.5rem; list-style: none; }
-    .nav-links a { font-size: 0.8rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--grey); text-decoration: none; transition: color 0.2s; }
+    .nav-links a { font-size: 0.8rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--grey); text-decoration: none; transition: color 0.2s; padding-bottom: 3px; border-bottom: 2px solid transparent; transition: color 0.2s, border-color 0.2s; }
     .nav-links a:hover { color: var(--black); }
+    .nav-links a.nav-active { color: var(--black); border-bottom-color: var(--gold); }
     .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; }
     .hamburger span { display: block; width: 24px; height: 1.5px; background: var(--black); }
     .mobile-menu { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: var(--white); z-index: 99; flex-direction: column; align-items: center; justify-content: center; gap: 2.5rem; }
@@ -117,7 +118,7 @@
 
     /* HOME */
     .hero { display: grid; grid-template-columns: 1fr 1fr; min-height: calc(100vh - 80px); border-bottom: 1px solid var(--border); }
-    .hero-left { padding: 6rem 4rem; display: flex; flex-direction: column; justify-content: center; border-right: 1px solid var(--border); }
+    .hero-left { padding: 4rem 4rem 6rem; display: flex; flex-direction: column; justify-content: flex-end; border-right: 1px solid var(--border); }
     .hero-eyebrow { font-size: 0.72rem; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.5rem; }
     .hero-name { font-family: 'Cormorant Garamond', serif; font-size: clamp(3rem, 5vw, 5.5rem); font-weight: 300; line-height: 1.05; letter-spacing: -0.02em; margin-bottom: 0.3rem; }
     .hero-name em { font-style: italic; color: var(--gold); }
@@ -1003,6 +1004,9 @@
   function showPage(name) {
     document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
     document.getElementById('page-' + name).classList.add('active');
+    document.querySelectorAll('.nav-links a').forEach(a => a.classList.remove('nav-active'));
+    const activeLink = document.querySelector(`.nav-links a[onclick="showPage('${name}')"]`);
+    if (activeLink) activeLink.classList.add('nav-active');
     window.scrollTo(0, 0);
     if (name === 'blog') renderBlogGrid();
     if (name === 'home') renderHomePosts();
@@ -1171,6 +1175,8 @@
 
   renderHomePosts();
   setTimeout(initReveal, 300);
+  const homeLink = document.querySelector(".nav-links a[onclick=\"showPage('home')\"]");
+  if (homeLink) homeLink.classList.add('nav-active');
 
   // CTA STRIP ANIMATION
   const ctaStrip = document.getElementById('ctaStrip');
