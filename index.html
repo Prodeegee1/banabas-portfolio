@@ -26,6 +26,51 @@
     html { scroll-behavior: smooth; }
     body { font-family: 'DM Sans', sans-serif; background: var(--white); color: var(--black); font-size: 16px; line-height: 1.6; overflow-x: hidden; }
 
+    /* OPEN TO PROJECTS */
+    .available-badge { display: inline-flex; align-items: center; gap: 0.5rem; margin-bottom: 1.5rem; text-decoration: none; }
+    .available-dot { width: 9px; height: 9px; border-radius: 50%; background: #22c55e; flex-shrink: 0; }
+    @keyframes greenPulse { 0% { box-shadow: 0 0 0 0 rgba(34,197,94,0.7); } 70% { box-shadow: 0 0 0 8px rgba(34,197,94,0); } 100% { box-shadow: 0 0 0 0 rgba(34,197,94,0); } }
+    .available-dot { animation: greenPulse 1.8s ease-in-out infinite; }
+    .available-text { font-size: 0.72rem; font-weight: 500; letter-spacing: 0.15em; text-transform: uppercase; color: #22c55e; transition: opacity 0.2s; }
+    .available-badge:hover .available-text { opacity: 0.75; }
+
+    /* AI CALLOUT */
+    .ai-callout { background: var(--black); padding: 5rem 4rem; border-bottom: 1px solid #1a1a1a; }
+    .ai-callout-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+    .ai-callout-left .section-label { color: var(--gold); margin-bottom: 1.5rem; }
+    .ai-callout-heading { font-family: 'Cormorant Garamond', serif; font-size: clamp(2rem, 3.5vw, 3rem); font-weight: 300; color: var(--white); line-height: 1.2; margin-bottom: 1rem; }
+    .ai-callout-heading em { font-style: italic; color: var(--gold); }
+    .ai-callout-sub { font-size: 0.9rem; color: var(--grey-light); line-height: 1.7; }
+    .ai-skills-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: #1e1e1e; }
+    .ai-skill-card { background: #111; padding: 2rem; transition: background 0.2s; }
+    .ai-skill-card:hover { background: #161616; }
+    .ai-skill-icon { font-size: 1.5rem; margin-bottom: 0.8rem; }
+    .ai-skill-name { font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; font-weight: 400; color: var(--white); margin-bottom: 0.4rem; }
+    .ai-skill-desc { font-size: 0.78rem; color: var(--grey); line-height: 1.5; }
+    @media (max-width: 900px) { .ai-callout { padding: 3rem 1.5rem; } .ai-callout-inner { grid-template-columns: 1fr; gap: 2rem; } .ai-skills-grid { grid-template-columns: 1fr 1fr; } }
+
+    /* HOME WORK SAMPLES */
+    .home-samples-section { padding: 5rem 4rem; border-bottom: 1px solid var(--border); }
+    .home-samples-header { display: flex; align-items: flex-end; justify-content: space-between; margin-bottom: 3rem; }
+    .home-video-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; }
+    @media (max-width: 900px) { .home-samples-section { padding: 3rem 1.5rem; } .home-video-grid { grid-template-columns: repeat(2, 1fr); gap: 1rem; } .home-samples-header { flex-direction: column; align-items: flex-start; gap: 1rem; } }
+
+    /* PRICING */
+    .pricing-section { padding: 5rem 4rem; background: var(--cream); border-top: 1px solid var(--border); }
+    .pricing-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; background: var(--border); margin-top: 3rem; }
+    .pricing-card { background: var(--white); padding: 2.5rem; transition: background 0.2s; }
+    .pricing-card:hover { background: var(--black); }
+    .pricing-card:hover .pricing-service { color: var(--gold); }
+    .pricing-card:hover .pricing-price { color: var(--gold); }
+    .pricing-card:hover .pricing-cadence { color: var(--grey-light); }
+    .pricing-card:hover .pricing-desc { color: var(--grey-light); }
+    .pricing-service { font-size: 0.72rem; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); margin-bottom: 1rem; transition: color 0.2s; }
+    .pricing-price { font-family: 'Cormorant Garamond', serif; font-size: 2.5rem; font-weight: 600; color: var(--black); line-height: 1; margin-bottom: 0.2rem; transition: color 0.2s; }
+    .pricing-cadence { font-size: 0.75rem; color: var(--grey); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 1rem; transition: color 0.2s; }
+    .pricing-desc { font-size: 0.82rem; color: var(--grey); line-height: 1.5; transition: color 0.2s; }
+    .pricing-disclaimer { margin-top: 2.5rem; font-size: 0.82rem; color: var(--grey); font-style: italic; text-align: center; }
+    @media (max-width: 900px) { .pricing-section { padding: 3rem 1.5rem; } .pricing-grid { grid-template-columns: 1fr; } }
+
     /* SCROLL ANIMATIONS */
     .reveal { opacity: 0; transform: translateY(40px); transition: opacity 0.7s ease, transform 0.7s ease; }
     .reveal.visible { opacity: 1; transform: translateY(0); }
@@ -216,7 +261,7 @@
 
     /* SERVICES */
     .services-header { padding: 6rem 4rem 3rem; border-bottom: 1px solid var(--border); }
-    .services-grid { padding: 4rem; display: grid; grid-template-columns: repeat(2, 1fr); gap: 2px; background: var(--border); }
+    .services-grid { padding: 4rem; display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; background: var(--border); }
     .service-card { background: var(--white); padding: 3rem; transition: background 0.2s; position: relative; }
     .service-card:hover { background: var(--cream); }
     .service-icon { font-size: 2rem; margin-bottom: 1.2rem; }
@@ -335,6 +380,10 @@
 <div id="page-home" class="page active">
   <section class="hero">
     <div class="hero-left">
+      <a href="https://wa.me/2348142360016?text=Hi%20Banabas%2C%20I%20need%20help%20with%20my%20brand.%20Here%27s%20what%20I%27m%20looking%20for%E2%80%94" target="_blank" class="available-badge reveal">
+        <span class="available-dot"></span>
+        <span class="available-text">Available for new projects</span>
+      </a>
       <p class="hero-eyebrow reveal">Digital Marketing Strategist & Video Editor</p>
       <h1 class="hero-name reveal delay-1">Banabas<br><em>Anyanwu</em></h1>
       <p class="hero-title reveal delay-2">Lagos · Remote · Global</p>
@@ -401,6 +450,38 @@
     </div>
   </section>
 
+  <section class="ai-callout">
+    <div class="ai-callout-inner">
+      <div class="ai-callout-left reveal-left">
+        <p class="section-label">AI-Powered Capabilities</p>
+        <h2 class="ai-callout-heading">Powered by <em>AI.</em><br>Driven by Strategy.</h2>
+        <p class="ai-callout-sub">I don't just use AI tools — I build workflows with them. From generating video ads out of a single product image to coding full websites through prompts, these capabilities sit at the core of how I deliver faster, sharper results for clients.</p>
+      </div>
+      <div class="ai-skills-grid reveal-right">
+        <div class="ai-skill-card">
+          <div class="ai-skill-icon">🎬</div>
+          <div class="ai-skill-name">Video Ad Production</div>
+          <div class="ai-skill-desc">Full AI video ad campaigns built from product images using Veo 3, Kling AI, and Flow.</div>
+        </div>
+        <div class="ai-skill-card">
+          <div class="ai-skill-icon">✍️</div>
+          <div class="ai-skill-name">Prompt Engineering</div>
+          <div class="ai-skill-desc">Precision prompting for image, video, and text generation that produces commercial-grade output.</div>
+        </div>
+        <div class="ai-skill-card">
+          <div class="ai-skill-icon">💻</div>
+          <div class="ai-skill-name">Vibe Coding</div>
+          <div class="ai-skill-desc">Building functional websites, tools, and automations through AI-assisted development — no traditional coding required.</div>
+        </div>
+        <div class="ai-skill-card">
+          <div class="ai-skill-icon">⚙️</div>
+          <div class="ai-skill-name">AI Content Workflows</div>
+          <div class="ai-skill-desc">End-to-end content systems that cut production time and scale output without cutting quality.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section class="testimonial-section">
     <p class="section-label reveal">Client Testimonial</p>
     <div class="testimonial-grid">
@@ -411,6 +492,56 @@
       </div>
       <div class="testimonial-video reveal-right">
         <iframe src="https://www.youtube.com/embed/-_P-f639tfY" title="Client Testimonial — Phatbird CEO" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+    </div>
+  </section>
+
+  </section>
+
+  <section class="home-samples-section">
+    <div class="home-samples-header">
+      <div>
+        <p class="section-label reveal">Work Samples</p>
+        <h2 class="section-title reveal delay-1">The Work, In Motion</h2>
+      </div>
+      <a class="see-all reveal" onclick="showPage('portfolio')">View All 8 Videos →</a>
+    </div>
+    <div class="home-video-grid">
+      <div class="video-item reveal">
+        <div class="video-embed">
+          <iframe src="https://www.youtube.com/embed/NVv7bKVASsI" title="Gym Routine With Social CTA" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+        </div>
+        <div class="video-meta">
+          <div class="video-client">Fitness Done Right</div>
+          <div class="video-title">Gym Routine With Social CTA</div>
+        </div>
+      </div>
+      <div class="video-item reveal delay-1">
+        <div class="video-embed">
+          <iframe src="https://www.youtube.com/embed/ocOUxfgDpx8" title="Synchronized Workout Edit" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+        </div>
+        <div class="video-meta">
+          <div class="video-client">Fitness Done Right</div>
+          <div class="video-title">Synchronized Workout — Music-Driven Edit</div>
+        </div>
+      </div>
+      <div class="video-item reveal delay-2">
+        <div class="video-embed">
+          <iframe src="https://www.youtube.com/embed/RnkCloyUUW8" title="Phatbird Yellow Earring" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+        </div>
+        <div class="video-meta">
+          <div class="video-client">Phatbird <span class="ai-badge">AI-Produced</span></div>
+          <div class="video-title">Yellow Earring Campaign — From One Image</div>
+        </div>
+      </div>
+      <div class="video-item reveal delay-3">
+        <div class="video-embed">
+          <iframe src="https://www.youtube.com/embed/aiUQ5XXnBZU" title="Phatbird Summer Dress Ad" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+        </div>
+        <div class="video-meta">
+          <div class="video-client">Phatbird <span class="ai-badge">AI-Produced</span></div>
+          <div class="video-title">Summer Dress Ad — Built From a Single Image</div>
+        </div>
       </div>
     </div>
   </section>
@@ -685,7 +816,77 @@
       </ul>
       <a href="https://wa.me/2348142360016?text=Hi%20Banabas%2C%20I%20need%20help%20with%20my%20brand.%20Here%27s%20what%20I%27m%20looking%20for%E2%80%94" target="_blank" class="service-cta">Get Started →</a>
     </div>
+    <div class="service-card reveal">
+      <div class="service-icon">🎥</div>
+      <div class="service-name">Video Ad Production</div>
+      <ul class="service-bullets">
+        <li>AI-powered video ads built from product images or basic footage</li>
+        <li>Platform-ready formats for TikTok, Instagram Reels, and YouTube</li>
+        <li>Hook-first storytelling designed to stop the scroll</li>
+        <li>Voiceover, music, captions, and motion graphics included</li>
+        <li>Turnaround without the cost of a full production crew</li>
+      </ul>
+      <a href="https://wa.me/2348142360016?text=Hi%20Banabas%2C%20I%20need%20help%20with%20my%20brand.%20Here%27s%20what%20I%27m%20looking%20for%E2%80%94" target="_blank" class="service-cta">Get Started →</a>
+    </div>
+    <div class="service-card reveal delay-1">
+      <div class="service-icon">✨</div>
+      <div class="service-name">Content Creation for Brands</div>
+      <ul class="service-bullets">
+        <li>On-brand content ideation, scripting, and production</li>
+        <li>AI-assisted image and video content from product assets</li>
+        <li>Tailored for luxury, lifestyle, fashion, and fitness brands</li>
+        <li>Consistent brand voice across all content formats</li>
+        <li>Monthly content batches delivered ready to post</li>
+      </ul>
+      <a href="https://wa.me/2348142360016?text=Hi%20Banabas%2C%20I%20need%20help%20with%20my%20brand.%20Here%27s%20what%20I%27m%20looking%20for%E2%80%94" target="_blank" class="service-cta">Get Started →</a>
+    </div>
   </div>
+
+  <!-- PRICING SECTION -->
+  <section class="pricing-section">
+    <p class="section-label reveal">Pricing</p>
+    <h2 class="section-title reveal delay-1">Transparent Starting Points</h2>
+    <div class="pricing-grid">
+      <div class="pricing-card reveal">
+        <div class="pricing-service">Social Media Management</div>
+        <div class="pricing-price">$300</div>
+        <div class="pricing-cadence">Starting from / month</div>
+        <div class="pricing-desc">Full content calendar, platform strategy, community management, and monthly reporting.</div>
+      </div>
+      <div class="pricing-card reveal delay-1">
+        <div class="pricing-service">Video Editing</div>
+        <div class="pricing-price">$150</div>
+        <div class="pricing-cadence">Starting from / month</div>
+        <div class="pricing-desc">Short-form edits for TikTok, Reels, and Shorts — hook-first, platform-optimised.</div>
+      </div>
+      <div class="pricing-card reveal delay-2">
+        <div class="pricing-service">Video Ad Production</div>
+        <div class="pricing-price">$200</div>
+        <div class="pricing-cadence">Starting from / project</div>
+        <div class="pricing-desc">AI-powered video ads built from your product images — ready for paid or organic campaigns.</div>
+      </div>
+      <div class="pricing-card reveal">
+        <div class="pricing-service">Content Creation for Brands</div>
+        <div class="pricing-price">$250</div>
+        <div class="pricing-cadence">Starting from / month</div>
+        <div class="pricing-desc">Monthly content batches — scripted, produced, and delivered ready to post.</div>
+      </div>
+      <div class="pricing-card reveal delay-1">
+        <div class="pricing-service">Digital Marketing</div>
+        <div class="pricing-price">$400</div>
+        <div class="pricing-cadence">Starting from / month</div>
+        <div class="pricing-desc">End-to-end strategy, Google Ads, paid social, SEO, and analytics-driven optimisation.</div>
+      </div>
+      <div class="pricing-card reveal delay-2">
+        <div class="pricing-service">Website Building</div>
+        <div class="pricing-price">$250</div>
+        <div class="pricing-cadence">Starting from / project</div>
+        <div class="pricing-desc">Fast, mobile-responsive portfolio or business site — deployed and analytics-ready.</div>
+      </div>
+    </div>
+    <p class="pricing-disclaimer">Prices are starting points. Final scope depends on your brand's needs — let's talk.</p>
+  </section>
+
   <div class="services-bottom">
     <div class="services-bottom-text">
       <h3>Not sure which service?</h3>
@@ -720,7 +921,7 @@
       <button class="cat-tab" onclick="filterByCategory('Scale From Africa',this)">Scale From Africa</button>
     </div>
     <div class="blog-grid" id="blogGrid"></div>
-    <div class="write-post-section">
+    <div class="write-post-section" style="display:none;">
       <p class="section-label">Publish a New Post</p>
       <div class="write-form">
         <div class="form-group"><label class="form-label">Post Title</label><input type="text" class="form-input" id="postTitle" placeholder="Enter your article title" /></div>
@@ -785,15 +986,15 @@
 
 <script>
   let posts = [
-    { id:1, image:"blog1.jpeg", title:"How I Grew a Fitness Brand\u2019s Video Views by 530% (And What Every Fitness Creator Can Learn From It)", category:"Video Editing", date:"30 April 2025", excerpt:"When Fitness Done Right brought me on as their video editor, their content was good. But the numbers were not reflecting any of that. Views were flat. Engagement was low. Here\u2019s exactly what changed.", content:`<p>When Fitness Done Right brought me on as their video editor, their content was good. The workouts were solid, the trainer was charismatic, and the brand had something real to say. But the numbers were not reflecting any of that.</p><p>Views were flat. Engagement was low. Good content was getting ignored.</p><p>That is a frustrating place to be as a brand. You are putting in the work and the algorithm is not rewarding you for it. I have seen it happen to a lot of fitness creators and the problem is almost never the content itself. It is how the content is packaged.</p><p>Within a few months of working together, video views grew by 530%. Here is exactly what changed.</p><p>The first three seconds were doing nothing. Most fitness videos open with an intro. Logo animation, music fade in, trainer walking into frame. By the time anything interesting happens, half the audience is already gone. On short-form platforms, you have about two to three seconds before someone scrolls. We cut every intro. Every video started mid-action. A rep already in progress. A bold statement. A result shown before it was explained.</p><p>The editing pace was too slow for the platform. There is a rhythm to fitness content that works and a rhythm that kills it. Long static shots feel like watching someone exercise in real time. We tightened every cut. Removed dead air. Added jump cuts at the right moments to keep energy high without making the video feel chaotic.</p><p>We stopped making videos for everyone. Fitness content that tries to appeal to everyone appeals to no one. The messaging was too broad and the visuals were too generic. We got specific. The editing style, the text overlays, the music choices, the pacing \u2014 all of it was calibrated for a specific viewer. Someone who trains seriously, follows results and respects no-nonsense content.</p><p>530% increase in video views. Not from posting more. Not from paid ads. Just from editing the content smarter. Good footage edited badly is wasted. Good footage edited well becomes a growth engine.</p><p>If your fitness brand is producing content that is not converting into views, followers or clients, the problem is probably not what you are filming. It is how it is being put together. That is exactly what I fix.</p><p>Want to know what your content could look like with the right editor behind it? Send me a message and let\u2019s talk.</p>` },
-    { id:2, image:"blog2.jpeg", title:"Why Most Fashion Brands Are Invisible on Social Media (And How to Fix It)", category:"Social Media", date:"2 May 2025", excerpt:"Fashion is one of the most visual industries in the world. Every product is designed to be seen. And yet most fashion brands on social media are completely invisible. Not because they are posting badly.", content:`<p>Fashion is one of the most visual industries in the world. Every product is designed to be seen. And yet most fashion brands on social media are completely invisible.</p><p>Not because they are posting badly. Because they are posting without a strategy.</p><p>There is a difference between being active on social media and actually growing on it. A lot of fashion brands are stuck being active. They post regularly, they use hashtags, they write captions. But the followers are not coming, the engagement is flat and the sales from social are close to zero.</p><p>They are posting for themselves instead of their audience. The most common mistake fashion brands make is posting what they want to show rather than what their audience wants to see. Product flat lays. Stock images. Generic promotional captions. Nobody shares a flat lay. Nobody saves a promotional caption. The content that grows fashion accounts is content that makes the viewer feel something. Aspiration. Desire. Recognition.</p><p>They have no content system. Posting randomly when inspiration strikes is not a strategy. The brands that grow consistently on social media are the ones with a content calendar, a clear posting rhythm and a defined brand voice that shows up the same way every single time. Consistency builds trust. Trust builds followers. Followers become customers.</p><p>They ignore the data. Every social media platform gives you free data about what is working and what is not. Most fashion brands never look at it. Which posts got the most saves? Which ones drove profile visits? That data tells you exactly what to do more of and what to stop wasting time on.</p><p>They treat every platform the same. What works on Instagram does not automatically work on TikTok. A fashion brand that reposts the same content across every platform without adapting it is leaving enormous growth on the table.</p><p>The fashion brands winning on social media right now have three things in common. A clear aesthetic that is instantly recognisable. A content system that runs without depending on daily inspiration. And a strategy that is built around data, not guesswork. That combination is not complicated. But it has to be intentional.</p><p>If your fashion brand is posting consistently and still not growing, the content is not the problem. The strategy behind it is.</p>` },
-    { id:3, image:"blog3.jpeg", title:"How I Cleared Millions in Near-Expiry Pharma Stock Using Digital Ads", category:"Digital Marketing", date:"April 2025", excerpt:"A crisis brief, a tight deadline, and a strategy that turned potential loss into a complete sell-out. Here's exactly what I did.", content:`<p>When Prodserv Pharmaceuticals came to me with the brief, the situation was urgent. Millions worth of pharmaceutical stock was approaching its expiry date, and the clock was ticking.</p><h2>Understanding the Problem</h2><p>The first thing I did was reframe the challenge. This wasn't a crisis — it was a time-sensitive sales problem. And every sales problem has a digital solution.</p><h2>The Strategy</h2><p>I built a multi-platform paid media campaign targeting healthcare professionals, pharmacies, and B2B buyers. The messaging was urgent but professional — scarcity creates action when positioned correctly.</p><h2>The Result</h2><p>Within 3 months, the stock was cleared completely. Millions in potential losses became a sell-out success story.</p>` },
-    { id:4, image:"blog5.jpeg", title:"Why African Digital Marketers Have a Global Competitive Edge", category:"Scale From Africa", date:"March 2025", excerpt:"Working from Lagos and serving clients in London and New York taught me something powerful about the African creative advantage.", content:`<p>There's a narrative that needs to be dismantled: that working from Africa means working at a disadvantage. My experience says the opposite.</p><h2>The African Creative Edge</h2><p>When you grow up navigating limited resources with maximum creativity, you develop a problem-solving instinct that most Western marketers never need to build.</p><h2>Scale From Africa</h2><p>This is why I'm building the Scale From Africa movement. To show the next generation of African digital professionals that geography is not a limitation. It's a story. And stories, told well, sell.</p>` },
-    { id:5, image:"blog4.jpeg", title:"The AI Content Workflow That Changed How I Produce for Clients", category:"AI & Content", date:"February 2025", excerpt:"From Google Flow to Veo 3 to CapCut — here's the full production stack I use to create editorial-grade content at scale.", content:`<p>The question I get asked most often is: how are you producing this volume of content without a full team? The honest answer is AI — used strategically, not lazily.</p><h2>The Stack</h2><p>My current AI content production workflow runs through Google Flow for image generation, Veo 3 for cinematic video, and CapCut for assembly and editing.</p><h2>Prompt Engineering is the Skill</h2><p>Anyone can access these tools. The differentiator is prompt precision. I spend more time crafting prompts than in the actual generation phase.</p>` },
-    { id:6, image:"blog6.jpeg", title:"Why Most Businesses Are Wasting Their Ad Budget", category:"Digital Marketing", date:"4 May 2025", excerpt:"Most businesses are spending money on ads. Very few are spending it well. The difference is not budget — it is strategy. Here is where it usually breaks down.", content:`<p>Most businesses are spending money on ads. Very few are spending it well.</p><p>The difference is not budget. It is strategy. And the gap between the two is where money quietly disappears every single month.</p><p>I have audited enough ad accounts to know that the same mistakes keep showing up regardless of industry, location, or spend level. Here is where it usually breaks down.</p><p>They are targeting too broadly. More reach does not mean more results. When you target everyone, your ad has to say something generic enough to appeal to all of them — and generic ads convert poorly. The best-performing campaigns are built around a specific person with a specific problem, not a demographic bucket.</p><p>They are measuring the wrong things. Impressions feel good. Clicks feel good. But impressions and clicks do not pay salaries. If your ad reporting stops before it reaches revenue, you have no idea whether your budget is working. Conversion tracking, attribution, and cost-per-acquisition are the only numbers that tell the real story.</p><p>They are sending paid traffic to a weak landing page. You can have a perfect ad and waste every penny of it if the page it sends people to is slow, confusing, or unconvincing. The ad gets attention. The page closes the deal. Both have to be good.</p><p>They are not testing anything. Running one ad version and wondering why it is not performing is not a strategy. The brands with the strongest ad performance are the ones that are constantly testing creative, copy, and audiences — and cutting what does not convert.</p><p>Ad budget is not a cost. Used correctly, it is the most scalable growth tool available. Used without a strategy, it is just an expensive way to prove that your offer needs work.</p><p>If you want to know exactly where your budget is leaking and what to do about it, send me a message.</p>` },
-    { id:7, image:"blog7.jpeg", title:"How AI Is Changing Content Creation for Small Brands", category:"AI & Content", date:"7 May 2025", excerpt:"AI has not replaced the need for strategy. It has made the gap between brands that have one and brands that do not bigger than it has ever been.", content:`<p>The conversation around AI and content creation is full of noise. Either AI is going to take every creative job, or it is a gimmick that produces obvious, soulless output. Neither of those is what I see in practice.</p><p>What I actually see is this: AI has made it possible for small brands to produce content at a scale and quality that was previously only available to brands with large teams and large budgets. And it has made the gap between brands that have a strategy and brands that do not bigger than it has ever been.</p><p>Because AI does not give you a strategy. It gives you execution capacity. If you know what you are trying to say and who you are trying to say it to, AI multiplies your ability to say it consistently, quickly, and at quality. If you do not know those things, AI just helps you produce more confusion, faster.</p><p>The small brands winning with AI right now are the ones using it to do things they could not do before — not to replace things they were already doing well. Generating product images that look editorial instead of relying on supplier stock photos. Producing short-form video content without needing a full production crew. Testing ten variations of ad creative in the time it used to take to produce one.</p><p>The tool matters less than how it is used. Veo 3, Imagen, Kling AI — I use all of them. But the output is only as good as the brief going in. Prompt engineering is the real skill. Anyone can access the tools. Very few are using them with enough precision to produce content that does not look like it came from a machine.</p><p>If your brand is not yet building AI into its content workflow, you are not saving money. You are falling behind.</p>` },
-    { id:8, image:"blog8.jpeg", title:"How to Land UK and US Clients as an African Freelancer", category:"Scale From Africa", date:"11 May 2025", excerpt:"Geography is not the barrier most African freelancers think it is. The barrier is usually positioning. Here is how to fix it.", content:`<p>The question I get from African freelancers more than any other is some version of: how do I get clients in the UK or US when I am based here?</p><p>The assumption behind that question is that geography is the barrier. It is not. Or rather — it is rarely the main one. The real barrier is usually positioning.</p><p>Here is what I mean. If your pitch is "I can do this work for cheaper than someone in your country," you have already made geography the story. And that is a race to the bottom you will eventually lose. There is always someone willing to do it cheaper. That is not a business. That is a trap.</p><p>The freelancers I know who are consistently landing UK and US clients are not leading with price. They are leading with results. Specific, documented, credible results. A portfolio that speaks before they do. A personal brand that signals professional seriousness — a proper website, a clean LinkedIn, work samples that are clearly good.</p><p>The time zone gap is real but manageable. UK clients especially are used to working with teams across time zones. What they are not willing to tolerate is slow communication, missed deadlines, or vague status updates. Over-communicate. Be faster to respond than they expect. Make working with you feel easier than working with someone local.</p><p>And build your presence where your ideal clients already are. LinkedIn is not optional. A newsletter or content platform that demonstrates your expertise is not optional. Visibility creates trust over time. Trust creates inbound interest. Inbound interest creates the best clients — the ones who come to you already convinced.</p><p>Africa is not a disadvantage. It is context. Story. Proof that you have built something without the infrastructure most Western freelancers take for granted. That is not something to hide. It is something to own.</p>` },
-    { id:9, image:"blog9.jpeg", title:"Why Your Brand Videos Are Not Converting", category:"Video Editing", date:"14 May 2025", excerpt:"The problem with most brand videos is not the camera, the location, or the budget. It is what happens in the first three seconds.", content:`<p>Most brand videos fail before anyone has finished watching them.</p><p>Not because the production was poor. Not because the product is bad. Because the video was built around what the brand wanted to show rather than what the viewer needed to see — and it lost people in the first few seconds before it had a chance to do either.</p><p>The first three seconds are everything. On every short-form platform, the decision to keep watching or scroll away happens almost instantly. Most brand videos open with a logo, a location shot, or a slow reveal. That is the video talking about itself before it has given the viewer any reason to care. By the time something interesting happens, the audience is already gone.</p><p>The hook has to come first. A result. A bold claim. A pattern interrupt. Something that makes the next three seconds feel worth staying for. That decision happens before any editing technique, before any visual effect, before anything else. Get the first frame wrong and nothing else can save the video.</p><p>Pace matters more than most brands realise. The rhythm of cuts, the length of individual shots, the energy of the music — all of it is communicating something about the brand before a single word is heard. Slow, cinematic cuts say one thing. Fast, punchy edits say another. Neither is wrong. But mismatching the editing pace to the platform or the audience is almost always wrong.</p><p>And the call to action is usually an afterthought. A good video builds toward something. Every second of it should be moving the viewer toward a specific next step. If that step is unclear, or arrives too late, or asks for too much, the video ends and nothing happens. Views without action are just numbers.</p><p>If your brand is producing video content that looks good but is not converting into followers, leads, or sales — the problem is almost never the camera or the location. It is the strategy behind the edit. That is exactly what I fix.</p>` }
+    { id:1, publishDate:"2025-04-30", image:"blog1.jpeg", title:"How I Grew a Fitness Brand\u2019s Video Views by 530% (And What Every Fitness Creator Can Learn From It)", category:"Video Editing", date:"30 April 2025", excerpt:"When Fitness Done Right brought me on as their video editor, their content was good. But the numbers were not reflecting any of that. Views were flat. Engagement was low. Here\u2019s exactly what changed.", content:`<p>When Fitness Done Right brought me on as their video editor, their content was good. The workouts were solid, the trainer was charismatic, and the brand had something real to say. But the numbers were not reflecting any of that.</p><p>Views were flat. Engagement was low. Good content was getting ignored.</p><p>That is a frustrating place to be as a brand. You are putting in the work and the algorithm is not rewarding you for it. I have seen it happen to a lot of fitness creators and the problem is almost never the content itself. It is how the content is packaged.</p><p>Within a few months of working together, video views grew by 530%. Here is exactly what changed.</p><p>The first three seconds were doing nothing. Most fitness videos open with an intro. Logo animation, music fade in, trainer walking into frame. By the time anything interesting happens, half the audience is already gone. On short-form platforms, you have about two to three seconds before someone scrolls. We cut every intro. Every video started mid-action. A rep already in progress. A bold statement. A result shown before it was explained.</p><p>The editing pace was too slow for the platform. There is a rhythm to fitness content that works and a rhythm that kills it. Long static shots feel like watching someone exercise in real time. We tightened every cut. Removed dead air. Added jump cuts at the right moments to keep energy high without making the video feel chaotic.</p><p>We stopped making videos for everyone. Fitness content that tries to appeal to everyone appeals to no one. The messaging was too broad and the visuals were too generic. We got specific. The editing style, the text overlays, the music choices, the pacing \u2014 all of it was calibrated for a specific viewer. Someone who trains seriously, follows results and respects no-nonsense content.</p><p>530% increase in video views. Not from posting more. Not from paid ads. Just from editing the content smarter. Good footage edited badly is wasted. Good footage edited well becomes a growth engine.</p><p>If your fitness brand is producing content that is not converting into views, followers or clients, the problem is probably not what you are filming. It is how it is being put together. That is exactly what I fix.</p><p>Want to know what your content could look like with the right editor behind it? Send me a message and let\u2019s talk.</p>` },
+    { id:2, publishDate:"2025-05-02", image:"blog2.jpeg", title:"Why Most Fashion Brands Are Invisible on Social Media (And How to Fix It)", category:"Social Media", date:"2 May 2025", excerpt:"Fashion is one of the most visual industries in the world. Every product is designed to be seen. And yet most fashion brands on social media are completely invisible. Not because they are posting badly.", content:`<p>Fashion is one of the most visual industries in the world. Every product is designed to be seen. And yet most fashion brands on social media are completely invisible.</p><p>Not because they are posting badly. Because they are posting without a strategy.</p><p>There is a difference between being active on social media and actually growing on it. A lot of fashion brands are stuck being active. They post regularly, they use hashtags, they write captions. But the followers are not coming, the engagement is flat and the sales from social are close to zero.</p><p>They are posting for themselves instead of their audience. The most common mistake fashion brands make is posting what they want to show rather than what their audience wants to see. Product flat lays. Stock images. Generic promotional captions. Nobody shares a flat lay. Nobody saves a promotional caption. The content that grows fashion accounts is content that makes the viewer feel something. Aspiration. Desire. Recognition.</p><p>They have no content system. Posting randomly when inspiration strikes is not a strategy. The brands that grow consistently on social media are the ones with a content calendar, a clear posting rhythm and a defined brand voice that shows up the same way every single time. Consistency builds trust. Trust builds followers. Followers become customers.</p><p>They ignore the data. Every social media platform gives you free data about what is working and what is not. Most fashion brands never look at it. Which posts got the most saves? Which ones drove profile visits? That data tells you exactly what to do more of and what to stop wasting time on.</p><p>They treat every platform the same. What works on Instagram does not automatically work on TikTok. A fashion brand that reposts the same content across every platform without adapting it is leaving enormous growth on the table.</p><p>The fashion brands winning on social media right now have three things in common. A clear aesthetic that is instantly recognisable. A content system that runs without depending on daily inspiration. And a strategy that is built around data, not guesswork. That combination is not complicated. But it has to be intentional.</p><p>If your fashion brand is posting consistently and still not growing, the content is not the problem. The strategy behind it is.</p>` },
+    { id:3, publishDate:"2025-04-01", image:"blog3.jpeg", title:"How I Cleared Millions in Near-Expiry Pharma Stock Using Digital Ads", category:"Digital Marketing", date:"April 2025", excerpt:"A crisis brief, a tight deadline, and a strategy that turned potential loss into a complete sell-out. Here's exactly what I did.", content:`<p>When Prodserv Pharmaceuticals came to me with the brief, the situation was urgent. Millions worth of pharmaceutical stock was approaching its expiry date, and the clock was ticking.</p><h2>Understanding the Problem</h2><p>The first thing I did was reframe the challenge. This wasn't a crisis — it was a time-sensitive sales problem. And every sales problem has a digital solution.</p><h2>The Strategy</h2><p>I built a multi-platform paid media campaign targeting healthcare professionals, pharmacies, and B2B buyers. The messaging was urgent but professional — scarcity creates action when positioned correctly.</p><h2>The Result</h2><p>Within 3 months, the stock was cleared completely. Millions in potential losses became a sell-out success story.</p>` },
+    { id:4, publishDate:"2025-03-01", image:"blog5.jpeg", title:"Why African Digital Marketers Have a Global Competitive Edge", category:"Scale From Africa", date:"March 2025", excerpt:"Working from Lagos and serving clients in London and New York taught me something powerful about the African creative advantage.", content:`<p>There's a narrative that needs to be dismantled: that working from Africa means working at a disadvantage. My experience says the opposite.</p><h2>The African Creative Edge</h2><p>When you grow up navigating limited resources with maximum creativity, you develop a problem-solving instinct that most Western marketers never need to build.</p><h2>Scale From Africa</h2><p>This is why I'm building the Scale From Africa movement. To show the next generation of African digital professionals that geography is not a limitation. It's a story. And stories, told well, sell.</p>` },
+    { id:5, publishDate:"2025-02-01", image:"blog4.jpeg", title:"The AI Content Workflow That Changed How I Produce for Clients", category:"AI & Content", date:"February 2025", excerpt:"From Google Flow to Veo 3 to CapCut — here's the full production stack I use to create editorial-grade content at scale.", content:`<p>The question I get asked most often is: how are you producing this volume of content without a full team? The honest answer is AI — used strategically, not lazily.</p><h2>The Stack</h2><p>My current AI content production workflow runs through Google Flow for image generation, Veo 3 for cinematic video, and CapCut for assembly and editing.</p><h2>Prompt Engineering is the Skill</h2><p>Anyone can access these tools. The differentiator is prompt precision. I spend more time crafting prompts than in the actual generation phase.</p>` },
+    { id:6, publishDate:"2025-05-04", image:"blog6.jpeg", title:"Why Most Businesses Are Wasting Their Ad Budget", category:"Digital Marketing", date:"4 May 2025", excerpt:"Most businesses are spending money on ads. Very few are spending it well. The difference is not budget — it is strategy. Here is where it usually breaks down.", content:`<p>Most businesses are spending money on ads. Very few are spending it well.</p><p>The difference is not budget. It is strategy. And the gap between the two is where money quietly disappears every single month.</p><p>I have audited enough ad accounts to know that the same mistakes keep showing up regardless of industry, location, or spend level. Here is where it usually breaks down.</p><p>They are targeting too broadly. More reach does not mean more results. When you target everyone, your ad has to say something generic enough to appeal to all of them — and generic ads convert poorly. The best-performing campaigns are built around a specific person with a specific problem, not a demographic bucket.</p><p>They are measuring the wrong things. Impressions feel good. Clicks feel good. But impressions and clicks do not pay salaries. If your ad reporting stops before it reaches revenue, you have no idea whether your budget is working. Conversion tracking, attribution, and cost-per-acquisition are the only numbers that tell the real story.</p><p>They are sending paid traffic to a weak landing page. You can have a perfect ad and waste every penny of it if the page it sends people to is slow, confusing, or unconvincing. The ad gets attention. The page closes the deal. Both have to be good.</p><p>They are not testing anything. Running one ad version and wondering why it is not performing is not a strategy. The brands with the strongest ad performance are the ones that are constantly testing creative, copy, and audiences — and cutting what does not convert.</p><p>Ad budget is not a cost. Used correctly, it is the most scalable growth tool available. Used without a strategy, it is just an expensive way to prove that your offer needs work.</p><p>If you want to know exactly where your budget is leaking and what to do about it, send me a message.</p>` },
+    { id:7, publishDate:"2025-05-07", image:"blog7.jpeg", title:"How AI Is Changing Content Creation for Small Brands", category:"AI & Content", date:"7 May 2025", excerpt:"AI has not replaced the need for strategy. It has made the gap between brands that have one and brands that do not bigger than it has ever been.", content:`<p>The conversation around AI and content creation is full of noise. Either AI is going to take every creative job, or it is a gimmick that produces obvious, soulless output. Neither of those is what I see in practice.</p><p>What I actually see is this: AI has made it possible for small brands to produce content at a scale and quality that was previously only available to brands with large teams and large budgets. And it has made the gap between brands that have a strategy and brands that do not bigger than it has ever been.</p><p>Because AI does not give you a strategy. It gives you execution capacity. If you know what you are trying to say and who you are trying to say it to, AI multiplies your ability to say it consistently, quickly, and at quality. If you do not know those things, AI just helps you produce more confusion, faster.</p><p>The small brands winning with AI right now are the ones using it to do things they could not do before — not to replace things they were already doing well. Generating product images that look editorial instead of relying on supplier stock photos. Producing short-form video content without needing a full production crew. Testing ten variations of ad creative in the time it used to take to produce one.</p><p>The tool matters less than how it is used. Veo 3, Imagen, Kling AI — I use all of them. But the output is only as good as the brief going in. Prompt engineering is the real skill. Anyone can access the tools. Very few are using them with enough precision to produce content that does not look like it came from a machine.</p><p>If your brand is not yet building AI into its content workflow, you are not saving money. You are falling behind.</p>` },
+    { id:8, publishDate:"2025-05-11", image:"blog8.jpeg", title:"How to Land UK and US Clients as an African Freelancer", category:"Scale From Africa", date:"11 May 2025", excerpt:"Geography is not the barrier most African freelancers think it is. The barrier is usually positioning. Here is how to fix it.", content:`<p>The question I get from African freelancers more than any other is some version of: how do I get clients in the UK or US when I am based here?</p><p>The assumption behind that question is that geography is the barrier. It is not. Or rather — it is rarely the main one. The real barrier is usually positioning.</p><p>Here is what I mean. If your pitch is "I can do this work for cheaper than someone in your country," you have already made geography the story. And that is a race to the bottom you will eventually lose. There is always someone willing to do it cheaper. That is not a business. That is a trap.</p><p>The freelancers I know who are consistently landing UK and US clients are not leading with price. They are leading with results. Specific, documented, credible results. A portfolio that speaks before they do. A personal brand that signals professional seriousness — a proper website, a clean LinkedIn, work samples that are clearly good.</p><p>The time zone gap is real but manageable. UK clients especially are used to working with teams across time zones. What they are not willing to tolerate is slow communication, missed deadlines, or vague status updates. Over-communicate. Be faster to respond than they expect. Make working with you feel easier than working with someone local.</p><p>And build your presence where your ideal clients already are. LinkedIn is not optional. A newsletter or content platform that demonstrates your expertise is not optional. Visibility creates trust over time. Trust creates inbound interest. Inbound interest creates the best clients — the ones who come to you already convinced.</p><p>Africa is not a disadvantage. It is context. Story. Proof that you have built something without the infrastructure most Western freelancers take for granted. That is not something to hide. It is something to own.</p>` },
+    { id:9, publishDate:"2025-05-14", image:"blog9.jpeg", title:"Why Your Brand Videos Are Not Converting", category:"Video Editing", date:"14 May 2025", excerpt:"The problem with most brand videos is not the camera, the location, or the budget. It is what happens in the first three seconds.", content:`<p>Most brand videos fail before anyone has finished watching them.</p><p>Not because the production was poor. Not because the product is bad. Because the video was built around what the brand wanted to show rather than what the viewer needed to see — and it lost people in the first few seconds before it had a chance to do either.</p><p>The first three seconds are everything. On every short-form platform, the decision to keep watching or scroll away happens almost instantly. Most brand videos open with a logo, a location shot, or a slow reveal. That is the video talking about itself before it has given the viewer any reason to care. By the time something interesting happens, the audience is already gone.</p><p>The hook has to come first. A result. A bold claim. A pattern interrupt. Something that makes the next three seconds feel worth staying for. That decision happens before any editing technique, before any visual effect, before anything else. Get the first frame wrong and nothing else can save the video.</p><p>Pace matters more than most brands realise. The rhythm of cuts, the length of individual shots, the energy of the music — all of it is communicating something about the brand before a single word is heard. Slow, cinematic cuts say one thing. Fast, punchy edits say another. Neither is wrong. But mismatching the editing pace to the platform or the audience is almost always wrong.</p><p>And the call to action is usually an afterthought. A good video builds toward something. Every second of it should be moving the viewer toward a specific next step. If that step is unclear, or arrives too late, or asks for too much, the video ends and nothing happens. Views without action are just numbers.</p><p>If your brand is producing video content that looks good but is not converting into followers, leads, or sales — the problem is almost never the camera or the location. It is the strategy behind the edit. That is exactly what I fix.</p>` }
   ];
 
   let currentCategory = 'all';
@@ -859,8 +1060,11 @@
   }
 
   function renderBlogGrid(filter = '') {
+    const today = new Date(); today.setHours(0,0,0,0);
     const grid = document.getElementById('blogGrid');
     const filtered = posts.filter(p => {
+      const pub = p.publishDate ? new Date(p.publishDate) : new Date(0);
+      if (pub > today) return false;
       const matchCat = currentCategory === 'all' || p.category === currentCategory;
       const matchSearch = p.title.toLowerCase().includes(filter.toLowerCase()) || p.excerpt.toLowerCase().includes(filter.toLowerCase());
       return matchCat && matchSearch;
@@ -875,7 +1079,9 @@
   function renderHomePosts() {
     const grid = document.getElementById('homePostsGrid');
     if (!grid) return;
-    grid.innerHTML = posts.slice(0,3).map(p => `<div class="blog-preview-card reveal" onclick="showPage('blog');setTimeout(()=>openBlogPost(${p.id}),100)"><div class="blog-card-category">${p.category}</div><h3 class="blog-card-title">${p.title}</h3><p class="blog-card-excerpt">${p.excerpt}</p><div class="blog-card-meta">Banabas Anyanwu · ${p.date}</div></div>`).join('');
+    const today = new Date(); today.setHours(0,0,0,0);
+    const livePosts = posts.filter(p => { const pub = p.publishDate ? new Date(p.publishDate) : new Date(0); return pub <= today; });
+    grid.innerHTML = livePosts.slice(0,3).map(p => `<div class="blog-preview-card reveal" onclick="showPage('blog');setTimeout(()=>openBlogPost(${p.id}),100)"><div class="blog-card-category">${p.category}</div><h3 class="blog-card-title">${p.title}</h3><p class="blog-card-excerpt">${p.excerpt}</p><div class="blog-card-meta">Banabas Anyanwu · ${p.date}</div></div>`).join('');
     setTimeout(initReveal, 100);
   }
 
