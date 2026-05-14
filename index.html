@@ -29,7 +29,7 @@
     /* OPEN TO PROJECTS */
     .available-badge { display: inline-flex; align-items: center; gap: 0.6rem; margin-bottom: 1.5rem; text-decoration: none; background: #0a0a0a; padding: 0.45rem 1rem 0.45rem 0.75rem; border-radius: 100px; }
     .available-dot { width: 8px; height: 8px; border-radius: 50%; background: #22c55e; flex-shrink: 0; box-shadow: 0 0 0 3px rgba(34,197,94,0.25); }
-    @keyframes greenPulse { 0% { box-shadow: 0 0 0 0 rgba(34,197,94,0.7); } 70% { box-shadow: 0 0 0 8px rgba(34,197,94,0); } 100% { box-shadow: 0 0 0 0 rgba(34,197,94,0); } }
+    @keyframes greenPulse { 0% { box-shadow: 0 0 0 0 rgba(34,197,94,0.8); } 60% { box-shadow: 0 0 0 14px rgba(34,197,94,0.15); } 100% { box-shadow: 0 0 0 20px rgba(34,197,94,0); } }
     .available-dot { animation: greenPulse 1.8s ease-in-out infinite; }
     .available-text { font-size: 0.7rem; font-weight: 500; letter-spacing: 0.13em; text-transform: uppercase; color: #f8f6f2; transition: opacity 0.2s; }
     .available-badge:hover { opacity: 0.85; }
@@ -292,7 +292,7 @@
 
     /* CTA STRIP */
     .cta-strip { background: var(--black); padding: 5rem 4rem; text-align: center; position: relative; overflow: hidden; }
-    .cta-gold-line { position: absolute; top: 0; left: 0; height: 2px; width: 0; background: var(--gold); transition: width 0.8s cubic-bezier(0.4,0,0.2,1); }
+    .cta-gold-line { position: absolute; top: 0; left: 0; height: 3px; width: 0; background: var(--gold); box-shadow: 0 0 12px rgba(184,151,46,0.6), 0 0 24px rgba(184,151,46,0.3); transition: width 0.9s cubic-bezier(0.4,0,0.2,1); }
     .cta-gold-line.animate { width: 100%; }
     .cta-inner { opacity: 0; transform: translateY(24px); transition: opacity 0.6s ease, transform 0.6s cubic-bezier(0.25,0.46,0.45,0.94); }
     .cta-inner.visible { opacity: 1; transform: translateY(0); }
@@ -301,8 +301,8 @@
     .cta-sub { color: var(--grey-light); font-size: 0.95rem; margin-bottom: 2.5rem; max-width: 520px; margin-left: auto; margin-right: auto; }
     .cta-btn { display: inline-block; padding: 1rem 2.5rem; background: var(--gold); color: var(--black); font-size: 0.78rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; text-decoration: none; transition: background 0.2s; }
     .cta-btn:hover { background: var(--gold-light); }
-    @keyframes ctaPulse { 0% { box-shadow: 0 0 0 0 rgba(184,151,46,0.7); } 70% { box-shadow: 0 0 0 18px rgba(184,151,46,0); } 100% { box-shadow: 0 0 0 0 rgba(184,151,46,0); } }
-    .cta-btn.pulse { animation: ctaPulse 0.9s ease forwards; }
+    @keyframes ctaPulse { 0% { box-shadow: 0 0 0 0 rgba(184,151,46,0.8); } 70% { box-shadow: 0 0 0 22px rgba(184,151,46,0); } 100% { box-shadow: 0 0 0 0 rgba(184,151,46,0); } }
+    .cta-btn.pulse { animation: ctaPulse 1.6s ease infinite; }
 
     /* FOOTER */
     footer { padding: 3rem 4rem; border-top: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; background: var(--black); color: var(--white); }
@@ -1189,16 +1189,19 @@
   if (ctaStrip) {
     const ctaObserver = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
+        const line = document.getElementById('ctaLine');
+        const inner = document.getElementById('ctaInner');
+        const btn = document.getElementById('ctaBtn');
         if (entry.isIntersecting) {
-          const line = document.getElementById('ctaLine');
-          const inner = document.getElementById('ctaInner');
-          const btn = document.getElementById('ctaBtn');
           line.classList.add('animate');
           inner.classList.add('visible');
           setTimeout(() => {
             if (btn) { btn.classList.add('pulse'); }
           }, 650);
-          ctaObserver.disconnect();
+        } else {
+          line.classList.remove('animate');
+          inner.classList.remove('visible');
+          if (btn) { btn.classList.remove('pulse'); }
         }
       });
     }, { threshold: 0.2 });
