@@ -120,10 +120,10 @@
     .hero { display: grid; grid-template-columns: 1fr 1fr; min-height: calc(100vh - 80px); border-bottom: 1px solid var(--border); }
     .hero-left { position: relative; border-right: 1px solid var(--border); overflow: hidden; }
     .hero-badge-top { position: absolute; top: 2rem; left: 2.5rem; z-index: 2; }
-    .hero-photo { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 8%; display: block; }
-    .hero-content { position: absolute; bottom: 0; left: 0; right: 0; max-height: 58%; padding: 2.5rem 3rem; display: flex; flex-direction: column; justify-content: flex-end; background: linear-gradient(to top, rgba(5,5,5,1) 0%, rgba(5,5,5,0.99) 30%, rgba(5,5,5,0.97) 48%, rgba(5,5,5,0.7) 62%, rgba(5,5,5,0.2) 76%, transparent 100%); }
+    .hero-photo { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 15%; display: block; transform: scale(0.92); transform-origin: center top; }
+    .hero-content { position: absolute; bottom: 0; left: 0; right: 0; max-height: 72%; padding: 2.5rem 3rem; display: flex; flex-direction: column; justify-content: flex-end; background: linear-gradient(to top, rgba(5,5,5,1) 0%, rgba(5,5,5,0.99) 28%, rgba(5,5,5,0.96) 45%, rgba(5,5,5,0.65) 60%, rgba(5,5,5,0.15) 78%, transparent 100%); }
     .mobile-role-title { display: none; }
-    .hero-eyebrow { font-size: 0.72rem; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.4rem; }
+    .hero-eyebrow { font-size: 0.72rem; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.6rem; display: block; }
     .hero-name { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.2rem, 4vw, 4.2rem); font-weight: 300; line-height: 1.05; letter-spacing: -0.02em; margin-bottom: 0.2rem; color: #f8f6f2; }
     .hero-name em { font-style: italic; color: var(--gold); }
     .hero-title { font-size: 0.78rem; font-weight: 400; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(248,246,242,0.7); margin-bottom: 0.8rem; margin-top: 0.3rem; }
@@ -322,7 +322,7 @@
       .hero, .about-hero, .contact-container { grid-template-columns: 1fr; }
       .hero-left { min-height: 88vh; border-right: none; border-bottom: 1px solid var(--border); }
       .hero-badge-top { top: 1.2rem; left: 1.5rem; }
-      .hero-content { padding: 1.5rem 1.5rem 2rem; max-height: 55%; }
+      .hero-content { padding: 1.5rem 1.5rem 2rem; max-height: 52%; }
       .hero-eyebrow { display: none; }
       .hero-name { font-size: clamp(2rem, 10vw, 3rem); margin-bottom: 0.2rem; }
       .hero-tagline { font-size: 0.88rem; margin-bottom: 1.2rem; }
