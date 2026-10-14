@@ -1,5 +1,9 @@
 {
+  "cleanUrls": true,
   "rewrites": [
-    { "source": "/((?!sitemap.xml$).*)", "destination": "/index.html" }
+    {
+      "source": "/((?!sitemap\\.xml$|guide(?:\\.html)?$).*)",
+      "destination": "/index.html"
+    }
   ]
 }
